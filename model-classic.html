@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جرارات التخزين | المتجر الرسمي</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Specific Styles for Product Page to override basic UI */
+        .product-showcase {
+            padding-top: 100px;
+            padding-bottom: 60px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, #f4f6fb 100%);
+        }
+        .showcase-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: flex-start;
+        }
+        @media (max-width: 968px) {
+            .showcase-container { grid-template-columns: 1fr; gap: 40px; }
+        }
+        
+        /* Gallery Styles */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .main-image-wrap {
+            background: #fff;
+            border-radius: 24px;
+            padding: 10px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
+        .main-image-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
+        }
+        .thumbnails-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+        .thumb-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .thumb-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+        .thumb-item.active {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.1);
+        }
+        .thumb-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .showcase-info {
+            padding: 20px 0;
+        }
+        .badges-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .pro-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .showcase-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+        .showcase-desc {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+        .showcase-price {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .showcase-price .val {
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .showcase-price .cur {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding-right: 10px;
+        }
+        .buy-action {
+            display: flex;
+            gap: 16px;
+        }
+        .buy-btn {
+            flex: 1;
+            font-size: 1.2rem;
+            padding: 18px 32px;
+        }
+        
+        /* Highlights */
+        .highlights {
+            padding: 60px 24px;
+            background: #fff;
+        }
+        .highlights-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .hl-card {
+            padding: 30px;
+            background: var(--bg-color);
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        .hl-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .hl-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; }
+        .hl-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+        /* Tech Specs Redesign - Grid/Schedule Layout */
+        .tech-specs {
+            padding: 80px 24px;
+            background: #f8fafc;
+        }
+        .specs-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .specs-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .specs-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 32px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 16px;
+            background: #fdfdfd;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        .spec-item:hover {
+            border-color: var(--primary);
+            background: #fff;
+            transform: scale(1.02);
+        }
+        
+        .spec-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(79, 70, 229, 0.08);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .spec-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .spec-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .spec-value {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            .product-showcase { padding-top: 60px; padding-bottom: 40px; }
+            .showcase-container { gap: 20px; padding: 0 20px; }
+            .specs-grid { padding: 20px; }
+            .main-image-wrap { border-radius: 20px; min-height: auto; padding: 15px; }
+            
+            .showcase-info { display: flex; flex-direction: column; align-items: center; text-align: center; }
+            .badges-wrap { justify-content: center; gap: 8px; margin-bottom: 10px; }
+            .pro-badge { margin-bottom: 0 !important; font-size: 0.8rem; padding: 6px 12px; }
+            
+            .showcase-title { font-size: 2.2rem; margin: 10px 0; }
+            .showcase-desc { font-size: 0.9rem; line-height: 1.6; margin-bottom: 24px; padding: 0 10px; }
+            
+            .showcase-price { 
+                flex-direction: row; 
+                justify-content: center; 
+                align-items: baseline; 
+                gap: 8px; 
+                padding-bottom: 15px; 
+                margin-bottom: 25px; 
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            .showcase-price .val { font-size: 2.8rem; }
+            .showcase-price .cur { font-size: 0.95rem; }
+            
+            .buy-action { width: 100%; }
+            .buy-btn { 
+                width: 100%; 
+                font-size: 1.1rem; 
+                padding: 16px; 
+                border-radius: 14px;
+                box-shadow: 0 10px 25px rgba(79, 70, 229, 0.2);
+            }
+            
+            .shipping-notice {
+                font-size: 0.85rem !important;
+                justify-content: center;
+                margin-top: 15px !important;
+                gap: 6px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Background Grid -->
+    <div class="bg-container">
+        <div class="color-blob blob-1"></div>
+        <div class="color-blob blob-2"></div>
+        <div class="bg-grid"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class='bx bx-grid-alt'></i>
+                <span class="logo-text">جرارات التخزين</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">الرئيسية</a>
+                <a href="index.html#store" class="nav-link">المتجر</a>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="index.html#store" class="btn-secondary" style="padding: 8px 16px;">العودة للمتجر</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Showcase -->
+    <section class="product-showcase">
+        <div class="showcase-container reveal">
+            <!-- Gallery Section -->
+            <div class="gallery-container">
+                <div class="main-image-wrap" id="mainImageWrap">
+                    <img src="images/drawer-1.jpg" alt="جرارات التخزين" id="mainProductImg">
+                </div>
+                <div class="thumbnails-grid">
+                    <div class="thumb-item active" onclick="switchImage('images/drawer-1.jpg', this)">
+                        <img src="images/drawer-1.jpg" alt="View 1">
+                    </div>
+                    <div class="thumb-item" onclick="switchImage('images/drawer-2.jpg', this)">
+                        <img src="images/drawer-2.jpg" alt="View 2">
+                    </div>
+                    <div class="thumb-item" onclick="switchImage('images/drawer-3.jpg', this)">
+                        <img src="images/drawer-3.jpg" alt="View 3">
+                    </div>
+                    <div class="thumb-item" onclick="switchImage('images/drawer-4.jpg', this)">
+                        <img src="images/drawer-4.jpg" alt="View 4">
+                    </div>
+                    <div class="thumb-item" onclick="switchImage('images/drawer-5.jpg', this)">
+                        <img src="images/drawer-5.jpg" alt="View 5">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Details Section -->
+            <div class="showcase-info">
+                <div class="badges-wrap">
+                    <div class="pro-badge"><i class='bx bxs-truck'></i> توصيل مجاني</div>
+                    <div class="pro-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981;"><i class='bx bxs-star'></i> الإصدار الأكثر مبيعاً</div>
+                </div>
+                <h1 class="showcase-title">جرارات <span class="text-gradient">التخزين</span></h1>
+                <p class="showcase-desc">
+                    جرارات التخزين البلاستيكية مكونة من 20 درج ، مصممة بعناية فائقة لتنظيم المساحات بذكاء سواء في مكتبك ، ورشتك ، أو غرفتك الشخصية. تخلص من الفوضى الآن!
+                </p>
+                
+                <div class="showcase-price">
+                    <span class="val">150,000</span>
+                    <span class="cur">ليرة سورية</span>
+                </div>
+                
+                <div class="buy-action">
+                    <button class="btn-primary buy-btn" onclick="openOrderModal('جرارات التخزين', 150000)">
+                        اطلب الآن - استلام منزلي
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </div>
+                
+                <div class="shipping-notice" style="margin-top: 24px; color: #10b981; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                    <i class='bx bxs-truck' style="font-size: 1.4rem;"></i>
+                    متوفر للتوصيل السريع لجميع المحافظات (1-3 أيام)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specs Redesign -->
+    <section class="tech-specs">
+        <div class="specs-container reveal">
+            <div class="specs-header">
+                <h2 class="specs-title">المواصفات التقنية</h2>
+                <p class="text-muted">نظرة دقيقة على تفاصيل التصنيع والقياسات</p>
+            </div>
+            
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-icon"><i class='bx bx-expand-alt'></i></div>
+                    <div class="spec-details">
+                        <span class="spec-label">الأبعاد الكلية</span>
+                        <span class="spec-value">40 × 30 × 15 سم</span>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon"><i class='bx bx-category'></i></div>
+                    <div class="spec-details">
+                        <span class="spec-label">إجمالي عدد الأدراج</span>
+                        <span class="spec-value">24 درجاً</span>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon"><i class='bx bx-ruler'></i></div>
+                    <div class="spec-details">
+                        <span class="spec-label">أبعاد الدرج</span>
+                        <span class="spec-value">5 × 3 × 14 سم</span>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon"><i class='bx bx-cube'></i></div>
+                    <div class="spec-details">
+                        <span class="spec-label">مادة التصنيع</span>
+                        <span class="spec-value">بلاستيك</span>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon"><i class='bx bx-weight'></i></div>
+                    <div class="spec-details">
+                        <span class="spec-label">الوزن الكلي</span>
+                        <span class="spec-value">1.8 كغ</span>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon"><i class='bx bx-palette'></i></div>
+                    <div class="spec-details">
+                        <span class="spec-label">الألوان المتوفرة</span>
+                        <span class="spec-value">أسود / سيان (Cyan)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="highlights">
+        <div class="highlights-grid reveal">
+            <div class="hl-card">
+                <i class='bx bx-hive hl-icon'></i>
+                <h3 class="hl-title">تقسيم ذكي</h3>
+                <p class="hl-desc">تتيح لك ترتيب كل شيء بدءاً من المسامير والإلكترونيات وحتى الإكسسوارات الشخصية.</p>
+            </div>
+            <div class="hl-card">
+                <i class='bx bx-shield-quarter hl-icon'></i>
+                <h3 class="hl-title">جودة بناء فائقة</h3>
+                <p class="hl-desc">بلاستيك عالي الكثافة ومضاد للكسر. أدراج شفافة تضمن لك رؤية ما بداخلها بوضوح.</p>
+            </div>
+            <div class="hl-card">
+                <i class='bx bx-layer-plus hl-icon'></i>
+                <h3 class="hl-title">قابل للتثبيت</h3>
+                <p class="hl-desc">قابلة للتركيب فوق بعضها أو التثبيت على الحائط بسهولة لتوفير المساحة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class='bx bx-grid-alt'></i>
+                جرارات التخزين
+            </div>
+            <p class="footer-text">نحو أسلوب حياة أكثر تنظيماً وأناقة في سوريا.</p>
+            <div class="copyright">
+                &copy; 2026 شركة جرارات التخزين. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Order Modal -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-container glass-panel">
+            <button class="modal-close" onclick="closeOrderModal()"><i class='bx bx-x'></i></button>
+            <div class="modal-header">
+                <h3 class="modal-title">إتمام الطلب</h3>
+                <p class="modal-subtitle">المنتج: <span id="selectedModelName" class="text-gradient font-bold"></span></p>
+            </div>
+            <div class="modal-body">
+                <div class="step-content active" id="step1">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">الاسم الكامل</label>
+                            <input type="text" class="form-input" id="customerName" placeholder="الاسم الثلاثي">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">رقم الموبايل</label>
+                            <input type="tel" class="form-input" id="customerPhone" placeholder="09xxxxxxxxx">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">المحافظة</label>
+                            <select class="form-input" id="customerCity">
+                                <option value="">اختر المحافظة...</option>
+                                <option value="دمشق">دمشق</option>
+                                <option value="ريف دمشق">ريف دمشق</option>
+                                <option value="حلب">حلب</option>
+                                <option value="حمص">حمص</option>
+                                <option value="حماة">حماة</option>
+                                <option value="اللاذقية">اللاذقية</option>
+                                <option value="طرطوس">طرطوس</option>
+                                <option value="درعا">درعا</option>
+                                <option value="السويداء">السويداء</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">العنوان التفصيلي</label>
+                            <input type="text" class="form-input" id="customerAddress" placeholder="المنطقة، الشارع، البناء...">
+                        </div>
+                    </div>
+                    <button class="btn-primary w-100 mt-4" onclick="nextStep()">متابعة للدفع <i class='bx bx-left-arrow-alt'></i></button>
+                </div>
+                <div class="step-content" id="step2">
+                    <div class="payment-card glass-panel-inner">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Syriatel_Logo.png" alt="Syriatel Cash" class="pay-logo">
+                        <h4 class="pay-title">الدفع عبر سيريتل كاش</h4>
+                        <p class="pay-hint">يرجى تحويل مبلغ <strong class="text-gradient text-lg" id="selectedModelPrice">150,000</strong> ل.س إلى الرقم التالي:</p>
+                        <div class="number-box" onclick="copyNumber()">
+                            <span class="number-val" id="payNumber">0930000000</span>
+                            <i class='bx bx-copy'></i>
+                        </div>
+                        <p class="copy-hint">اضغط لنسخ الرقم</p>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label class="form-label">رقم عملية التحويل (Reference Number)</label>
+                        <input type="text" class="form-input text-center font-bold" id="paymentRef" placeholder="مثال: 12345678">
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-secondary flex-1" onclick="prevStep()">رجوع</button>
+                        <button class="btn-primary flex-2" onclick="submitOrder()">تأكيد الطلب <i class='bx bx-check-circle'></i></button>
+                    </div>
+                </div>
+                <div class="step-content text-center" id="step3">
+                    <div class="success-animation"><div class="checkmark-circle"><i class='bx bx-check'></i></div></div>
+                    <h3 class="success-title">تم استلام طلبك بنجاح!</h3>
+                    <p class="success-text">سنقوم بمعالجة طلبك وشحنه خلال 1 إلى 3 أيام عمل.<br>سنتواصل معك قريباً للتأكيد.</p>
+                    <button class="btn-secondary mt-4 w-100" onclick="closeOrderModal()">العودة للمتجر</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        // Image Gallery Switcher
+        function switchImage(src, thumb) {
+            const mainImg = document.getElementById('mainProductImg');
+            mainImg.src = src;
+            
+            // Update active thumb
+            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+    </script>
+</body>
+</html>

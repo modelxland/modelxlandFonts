@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/adraji",
+      "destination": "/index.html"
+    }
+  ],
+  "cleanUrls": true
+}

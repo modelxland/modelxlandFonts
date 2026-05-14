@@ -21,22 +21,52 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+
+html {
+  scroll-padding-top: 84px;
+}
 
   body {
-    background: var(--bg);
+    background:
+      radial-gradient(circle at top, rgba(201,169,110,0.08), transparent 34%),
+      linear-gradient(180deg, #0c0c0c 0%, #080808 42%, #050505 100%);
     color: var(--cream);
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
   }
 
+  .smooth-scroll-content {
+    width: 100%;
+    will-change: transform;
+  }
+
+  .smooth-scroll-enabled .smooth-scroll-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .scroll-debug-badge {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 1200;
+    padding: 8px 12px;
+    border: 1px solid rgba(201,169,110,0.28);
+    background: rgba(8,8,8,0.9);
+    color: var(--gold2);
+    font: 600 11px/1 'DM Sans', sans-serif;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+    pointer-events: none;
+  }
+
   /* NOISE OVERLAY */
   body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 1000; opacity: 0.4;
+    content: none;
   }
 
   /* ══════════════════════════════════════════════
@@ -47,15 +77,12 @@
     height: 72px; padding: 0 48px;
     display: flex; align-items: center; justify-content: space-between;
     border-bottom: 1px solid transparent;
-    transition: border-color 0.5s, background 0.5s, box-shadow 0.5s, height 0.4s;
+    transition: border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
   }
   nav.scrolled {
-    height: 62px;
-    background: rgba(5,5,5,0.90);
+    background: rgba(8,8,8,0.94);
     border-color: rgba(201,169,110,0.13);
-    backdrop-filter: blur(28px) saturate(1.5);
-    -webkit-backdrop-filter: blur(28px) saturate(1.5);
-    box-shadow: 0 1px 0 rgba(201,169,110,0.07), 0 24px 64px rgba(0,0,0,0.55);
+    box-shadow: 0 1px 0 rgba(201,169,110,0.07), 0 14px 36px rgba(0,0,0,0.38);
   }
 
   /* Shimmer top line on scroll */
@@ -69,7 +96,7 @@
       rgba(180,80,220,0.45) 55%,
       rgba(201,169,110,0.0) 85%,
       transparent 100%);
-    animation: shimmerLine 4s ease-in-out infinite;
+    opacity: 0.6;
   }
   @keyframes shimmerLine {
     0%, 100% { opacity: 0.4; }
@@ -153,8 +180,8 @@
     background: rgba(9,9,9,0.97);
     border: 1px solid rgba(201,169,110,0.14);
     border-radius: 16px; overflow: hidden;
-    backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow:
       0 0 0 1px rgba(255,255,255,0.03),
       0 24px 72px rgba(0,0,0,0.75),
@@ -281,8 +308,8 @@
   .nav-mobile {
     position: fixed; top: 72px; left: 0; right: 0; z-index: 199;
     background: rgba(5,5,5,0.97);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(201,169,110,0.12);
     padding: 20px 28px 28px;
     display: none; flex-direction: column; gap: 2px;
@@ -361,7 +388,7 @@
       linear-gradient(rgba(201,169,110,0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(201,169,110,0.04) 1px, transparent 1px);
     background-size: 80px 80px;
-    animation: gridDrift 20s linear infinite;
+    opacity: 0.65;
   }
   @keyframes gridDrift {
     0% { transform: translate(0,0); }
@@ -373,7 +400,8 @@
     transform: translate(-50%, -50%);
     width: 700px; height: 700px;
     background: radial-gradient(circle, rgba(201,169,110,0.07) 0%, transparent 70%);
-    pointer-events: none; animation: pulse 6s ease-in-out infinite;
+    pointer-events: none;
+    opacity: 0.75;
   }
   @keyframes pulse {
     0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 1; }
@@ -435,7 +463,8 @@
   }
   .marquee-track {
     display: flex; gap: 48px;
-    animation: marquee 25s linear infinite; white-space: nowrap;
+    animation: marquee 40s linear infinite; white-space: nowrap;
+    will-change: transform;
   }
   .marquee-item {
     font-family: 'Cormorant Garamond', serif;
@@ -449,7 +478,11 @@
   }
 
   /* SECTION WRAPPER */
-  section { padding: 120px 48px; max-width: 1400px; margin: 0 auto; }
+  section {
+    padding: 120px 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
 
   .section-label {
     font-size: 0.65rem; letter-spacing: 0.35em;
@@ -650,7 +683,7 @@
   .order-overlay {
     position: fixed; inset: 0; z-index: 500;
     background: rgba(0,0,0,0.82);
-    backdrop-filter: blur(28px);
+    backdrop-filter: blur(12px);
     display: none; align-items: center; justify-content: center;
     padding: 16px;
   }
@@ -1034,6 +1067,7 @@
   </div>
 </div>
 
+<div class="smooth-scroll-content" id="smoothScrollContent">
 <!-- HERO -->
 <div class="hero">
   <div class="hero-bg-lines"></div>
@@ -1125,6 +1159,7 @@
   <span>© 2025 — All Rights Reserved</span>
   <span>modelxland.com/fonts</span>
 </footer>
+</div>
 
 <!-- ORDER MODAL -->
 <div class="order-overlay" id="orderOverlay">
@@ -1235,13 +1270,11 @@
         </a>
       </div>
 
-    </div>
-  </div>
+</div>
+</div>
 </div>
 
-    </div>
-  </div>
-</div>
+<div class="scroll-debug-badge">Scroll v2</div>
 
 <script>
 const IMGS = {
@@ -1257,9 +1290,21 @@ const IMGS = {
 };
 
 // ── NAV SCROLL ──────────────────────────────────────────
+const nav = document.getElementById('nav');
+let navScrollTicking = false;
+
+function syncNavScrollState() {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  navScrollTicking = false;
+}
+
 window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
-});
+  if(navScrollTicking) return;
+  navScrollTicking = true;
+  requestAnimationFrame(syncNavScrollState);
+}, { passive: true });
+
+syncNavScrollState();
 
 // ── CONTACT DROPDOWN ─────────────────────────────────────
 function toggleContactDropdown(e) {
@@ -1334,18 +1379,24 @@ galleryData.forEach((item, i) => {
   const div = document.createElement('div');
   div.className = 'gallery-item';
   div.style.transitionDelay = (i * 0.07) + 's';
-  div.innerHTML = `<img src="${IMGS[item.key]}" alt="${item.name}" loading="lazy">
+  div.innerHTML = `<img src="${IMGS[item.key]}" alt="${item.name}" loading="eager">
     <div class="gallery-item-overlay">
       <span class="gallery-item-name">${item.name}</span>
     </div>`;
   gallery.appendChild(div);
 });
 
-// Scroll reveal
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.gallery-item').forEach(el => observer.observe(el));
+function revealGalleryItems() {
+  document.querySelectorAll('.gallery-item').forEach(el => {
+    if(el.classList.contains('visible')) return;
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight * 0.92) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+revealGalleryItems();
 
 // ── ORDER MODAL ──────────────────────────────────────────
 function openOrder() {
@@ -1542,12 +1593,14 @@ function previewSuccess() {
 // ── SUPABASE ─────────────────────────────────────────────
 const SUPABASE_URL  = 'https://fesmvvlfqwxcfumbwbnc.supabase.co';
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZlc212dmxmcXd4Y2Z1bWJ3Ym5jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NDk3MTAsImV4cCI6MjA5MDQyNTcxMH0.xG_OvJoXIa0G1EYM0AKH94kUVmPS6t-F5mrj0_ut1cM';
-const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+const _sb = window.supabase?.createClient
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON)
+  : null;
 let _realtimeChannel = null;
 
 function setStatus(msg, type) {
-  const dot  = document.getElementById('statusDot');
-  const text = document.getElementById('statusText');
+  const dot  = document.getElementById('paymentStatusDot');
+  const text = document.getElementById('paymentStatusText');
   if (text) text.textContent = msg;
   if (dot)  dot.style.background = type === 'error' ? '#e05555' : type === 'paid' ? '#4caf6e' : 'var(--gold)';
 }
@@ -1562,6 +1615,10 @@ function deliverDownload(token) {
 }
 
 async function startPolling(phone) {
+  if(!_sb) {
+    setStatus('Payment service is temporarily unavailable. Please try again in a moment.', 'error');
+    return;
+  }
   setStatus('جاري التحقق...', 'waiting');
 
   // Clean up any previous channel
@@ -1609,6 +1666,7 @@ async function startPolling(phone) {
 }
 
 function subscribeToOrder(orderId) {
+  if(!_sb) return;
   _realtimeChannel = _sb
     .channel(`order-${orderId}`)
     .on('postgres_changes', {
@@ -1635,64 +1693,147 @@ document.getElementById('inputPhone').addEventListener('input', e => {
 
 refreshFormValidity({ showErrors: false });
 
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(!prefersReducedMotion) {
-  let smoothTarget = window.scrollY;
-  let smoothCurrent = window.scrollY;
-  let smoothFrame = null;
-
-  function clampSmoothTarget() {
-    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    smoothTarget = Math.max(0, Math.min(smoothTarget, maxScroll));
-  }
-
-  function stopSmoothFrame() {
-    if(smoothFrame) {
-      cancelAnimationFrame(smoothFrame);
-      smoothFrame = null;
-    }
-  }
-
-  function runSmoothScroll() {
-    smoothCurrent += (smoothTarget - smoothCurrent) * 0.17;
-
-    if(Math.abs(smoothTarget - smoothCurrent) < 0.45) {
-      smoothCurrent = smoothTarget;
-      window.scrollTo(0, smoothCurrent);
-      stopSmoothFrame();
-      return;
-    }
-
-    window.scrollTo(0, smoothCurrent);
-    smoothFrame = requestAnimationFrame(runSmoothScroll);
-  }
-
-  window.addEventListener('wheel', e => {
-    if(document.getElementById('orderOverlay').classList.contains('open')) return;
-    if(e.ctrlKey || e.metaKey) return;
-
-    e.preventDefault();
-    smoothCurrent = window.scrollY;
-    smoothTarget += e.deltaY;
-    clampSmoothTarget();
-
-    if(!smoothFrame) {
-      smoothFrame = requestAnimationFrame(runSmoothScroll);
-    }
-  }, { passive: false });
-
-  window.addEventListener('scroll', () => {
-    if(!smoothFrame) {
-      smoothCurrent = window.scrollY;
-      smoothTarget = window.scrollY;
-    }
-  }, { passive: true });
-}
 
 // ── KEYBOARD CLOSE ───────────────────────────────────────
 document.addEventListener('keydown', e => {
   if(e.key === 'Escape') closeOrder();
 });
+</script>
+<script>
+(() => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const content = document.getElementById('smoothScrollContent');
+  const debugBadge = document.querySelector('.scroll-debug-badge');
+
+  if (!content || prefersReducedMotion.matches) return;
+
+  const state = {
+    currentY: window.scrollY,
+    targetY: window.scrollY,
+    frame: 0,
+    resizeObserver: null,
+    wheelActive: false
+  };
+
+  function revealGalleryItemsNow() {
+    document.querySelectorAll('.gallery-item').forEach(el => {
+      if (el.classList.contains('visible')) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  function updateHeight() {
+    const nextHeight = Math.ceil(content.scrollHeight);
+    document.body.style.height = `${nextHeight}px`;
+  }
+
+  function clampTarget() {
+    const maxScroll = Math.max(0, document.body.scrollHeight - window.innerHeight);
+    state.targetY = Math.max(0, Math.min(state.targetY, maxScroll));
+  }
+
+  function stopFrame() {
+    if (!state.frame) return;
+    cancelAnimationFrame(state.frame);
+    state.frame = 0;
+  }
+
+  function render(force = false) {
+    clampTarget();
+
+    const delta = state.targetY - state.currentY;
+    state.currentY = force ? state.targetY : state.currentY + delta * 0.075;
+
+    if (Math.abs(delta) < 0.2) {
+      state.currentY = state.targetY;
+    }
+
+    content.style.transform = `translate3d(0, ${-state.currentY}px, 0)`;
+    revealGalleryItemsNow();
+
+    if (!force && Math.abs(state.targetY - state.currentY) < 0.2) {
+      state.wheelActive = false;
+      stopFrame();
+      return;
+    }
+
+    state.frame = requestAnimationFrame(() => render(false));
+  }
+
+  function requestRender(force = false) {
+    if (state.frame) return;
+    state.frame = requestAnimationFrame(() => render(force));
+  }
+
+  function normalizeWheelDelta(event) {
+    if (event.deltaMode === WheelEvent.DOM_DELTA_LINE) return event.deltaY * 32;
+    if (event.deltaMode === WheelEvent.DOM_DELTA_PAGE) return event.deltaY * window.innerHeight * 0.9;
+    return event.deltaY;
+  }
+
+  function handleWheel(event) {
+    if (event.ctrlKey || event.metaKey) return;
+    if (Math.abs(event.deltaY) < Math.abs(event.deltaX)) return;
+
+    event.preventDefault();
+    state.wheelActive = true;
+    state.targetY += normalizeWheelDelta(event) * 1.15;
+    clampTarget();
+    window.scrollTo({ top: state.targetY, behavior: 'instant' });
+    requestRender(false);
+  }
+
+  function init() {
+    document.body.classList.add('smooth-scroll-enabled');
+    if (debugBadge) debugBadge.textContent = 'Scroll v3';
+    updateHeight();
+    state.currentY = window.scrollY;
+    state.targetY = window.scrollY;
+    content.style.transform = `translate3d(0, ${-state.currentY}px, 0)`;
+    revealGalleryItemsNow();
+    requestRender(true);
+
+    if ('ResizeObserver' in window && !state.resizeObserver) {
+      state.resizeObserver = new ResizeObserver(() => {
+        updateHeight();
+        requestRender(false);
+      });
+      state.resizeObserver.observe(content);
+    }
+
+    content.querySelectorAll('img').forEach(img => {
+      img.addEventListener('load', () => {
+        updateHeight();
+        requestRender(false);
+      }, { passive: true });
+    });
+  }
+
+  window.addEventListener('wheel', handleWheel, { passive: false });
+  window.addEventListener('scroll', () => {
+    if (state.wheelActive) return;
+    state.targetY = window.scrollY;
+    requestRender(false);
+  }, { passive: true });
+  window.addEventListener('resize', () => {
+    updateHeight();
+    clampTarget();
+    requestRender(false);
+  }, { passive: true });
+  window.addEventListener('load', () => {
+    updateHeight();
+    requestRender(false);
+  }, { passive: true });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
+})();
 </script>
 </body>
 </html>

@@ -1,6 +1,312 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
+
 <head>
-  <meta http-equiv="refresh" content="0; url=/fonts">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جرارات التخزين | المتجر الرسمي</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
+<body>
+
+    <!-- Animated Background Grid & Blobs -->
+    <div class="bg-container">
+        <div class="color-blob blob-1"></div>
+        <div class="color-blob blob-2"></div>
+        <div class="color-blob blob-3"></div>
+        <div class="bg-grid"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class='bx bx-grid-alt'></i>
+                <span class="logo-text">جرارات التخزين</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#hero" class="nav-link active">الرئيسية</a>
+                <a href="#store" class="nav-link">المتجر</a>
+                <a href="#features" class="nav-link">المميزات</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#store" class="btn-glass">تسوق الآن</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content reveal">
+            <div class="hero-badge">✨ الجيل الجديد من التنظيم</div>
+            <h1 class="title">
+                نظّم مساحتك بلمسة<br>
+                <span class="text-gradient">أناقة وألوان حيوية</span>
+            </h1>
+            <p class="subtitle">
+                اكتشف مجموعة "جرارات التخزين" الفاخرة، المصممة خصيصاً لتناسب ديكور غرفتك وتوفر لك مساحة تخزين عملية
+                بلمسة فنية مذهلة.
+            </p>
+            <div class="hero-buttons">
+                <a href="#store" class="btn-primary">
+                    تصفح الموديلات
+                    <i class='bx bx-left-arrow-alt'></i>
+                </a>
+                <a href="#features" class="btn-secondary">
+                    تعرف على المميزات
+                </a>
+            </div>
+
+            <!-- Floating Elements around Hero -->
+            <div class="floating-element el-1">📦</div>
+            <div class="floating-element el-2">🎨</div>
+            <div class="floating-element el-3">✨</div>
+        </div>
+
+        <div class="hero-gallery reveal delay-1">
+            <div class="gallery-card main-card glass-panel">
+                <img src="images/drawer-1.jpg" alt="جرارات التخزين" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Section (Multiple Models) -->
+    <section id="store" class="store">
+        <div class="section-header reveal">
+            <h2 class="section-title">متجر <span class="text-gradient">جرارات التخزين</span></h2>
+            <p class="section-subtitle">اختر الموديل الذي يناسب احتياجاتك وذوقك</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card glass-panel reveal">
+                <div class="product-image-wrap">
+                    <div class="product-badge">متوفر</div>
+                    <img src="images/drawer-1.jpg" alt="جرارات التخزين" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">جرارات التخزين - الإصدار الأول</h3>
+                    <p class="product-desc">وحدة أدراج بلاستيكية فاخرة لتنظيم القطع الصغيرة بإتقان.</p>
+                    <div class="product-price">
+                        <span class="price-val">150,000</span>
+                        <span class="price-cur">ل.س</span>
+                    </div>
+                    <a href="model-classic.html" class="btn-primary w-100 text-center" style="text-decoration: none;">
+                        تفاصيل المنتج
+                        <i class='bx bx-link-external'></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card glass-panel reveal delay-1">
+                <div class="product-image-wrap">
+                    <div class="product-badge coming-soon">قريباً</div>
+                    <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=600&q=80"
+                        alt="جرارات برو" class="product-img grayscale">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">جرارات برو (حجم كبير)</h3>
+                    <p class="product-desc">مساحة أكبر وتقسيمات مرنة تناسب معداتك وأدواتك الكبيرة.</p>
+                    <div class="product-price">
+                        <span class="price-val text-muted">--</span>
+                        <span class="price-cur text-muted">ل.س</span>
+                    </div>
+                    <a href="#" class="btn-secondary w-100 text-center"
+                        style="text-decoration: none; pointer-events: none; opacity: 0.6;">
+                        تفاصيل المنتج (قريباً)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card glass-panel reveal delay-2">
+                <div class="product-image-wrap">
+                    <div class="product-badge coming-soon">قريباً</div>
+                    <img src="https://images.unsplash.com/photo-1595514535311-6cd72d242699?auto=format&fit=crop&w=600&q=80"
+                        alt="جرارات ميني" class="product-img grayscale">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">جرارات ميني</h3>
+                    <p class="product-desc">تصميم مضغوط وألوان زاهية، مثالي للمكاتب الصغيرة والإكسسوارات.</p>
+                    <div class="product-price">
+                        <span class="price-val text-muted">--</span>
+                        <span class="price-cur text-muted">ل.س</span>
+                    </div>
+                    <a href="#" class="btn-secondary w-100 text-center"
+                        style="text-decoration: none; pointer-events: none; opacity: 0.6;">
+                        تفاصيل المنتج (قريباً)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header reveal">
+            <h2 class="section-title">لماذا <span class="text-gradient">جرارات التخزين</span>؟</h2>
+            <p class="section-subtitle">نهتم بأدق التفاصيل لنقدم لك تجربة استثنائية</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-box glass-panel reveal">
+                <div class="icon-box color-1">
+                    <i class='bx bx-package'></i>
+                </div>
+                <h4>شحن مجاني وسريع</h4>
+                <p>نوفر خدمة توصيل مجانية لكافة المحافظات السورية خلال 1 إلى 3 أيام عمل فقط، أينما كنت.</p>
+            </div>
+
+            <div class="feature-box glass-panel reveal delay-1">
+                <div class="icon-box color-2">
+                    <i class='bx bx-diamond'></i>
+                </div>
+                <h4>تصميم عصري وفاخر</h4>
+                <p>ليست مجرد أدوات تخزين، بل هي قطعة ديكور تضفي لمسة جمالية وفنية على مكتبك وغرفتك.</p>
+            </div>
+
+            <div class="feature-box glass-panel reveal delay-2">
+                <div class="icon-box color-3">
+                    <i class='bx bx-layer'></i>
+                </div>
+                <h4>تقسيم ذكي وعملي</h4>
+                <p>أدراج شفافة ومرنة تتيح لك رؤية المحتويات بوضوح مع مساحات مصممة بعناية لتنظيم كل شيء.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content reveal">
+            <div class="footer-logo">
+                <i class='bx bx-grid-alt'></i>
+                جرارات التخزين
+            </div>
+            <p class="footer-text">نحو أسلوب حياة أكثر تنظيماً وأناقة في سوريا.</p>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class='bx bxl-facebook'></i></a>
+                <a href="#" class="social-icon"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="social-icon"><i class='bx bxl-whatsapp'></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 شركة جرارات التخزين. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-container glass-panel">
+            <button class="modal-close" onclick="closeOrderModal()"><i class='bx bx-x'></i></button>
+
+            <div class="modal-header">
+                <h3 class="modal-title">إتمام الطلب</h3>
+                <p class="modal-subtitle">المنتج: <span id="selectedModelName" class="text-gradient font-bold"></span>
+                </p>
+            </div>
+
+            <div class="modal-body">
+                <!-- Step 1: Info -->
+                <div class="step-content active" id="step1">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">الاسم الكامل</label>
+                            <input type="text" class="form-input" id="customerName" placeholder="الاسم الثلاثي">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">رقم الموبايل</label>
+                            <input type="tel" class="form-input" id="customerPhone" placeholder="09xxxxxxxxx">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">المحافظة</label>
+                            <select class="form-input" id="customerCity">
+                                <option value="">اختر المحافظة...</option>
+                                <option value="دمشق">دمشق</option>
+                                <option value="ريف دمشق">ريف دمشق</option>
+                                <option value="حلب">حلب</option>
+                                <option value="حمص">حمص</option>
+                                <option value="حماة">حماة</option>
+                                <option value="اللاذقية">اللاذقية</option>
+                                <option value="طرطوس">طرطوس</option>
+                                <option value="درعا">درعا</option>
+                                <option value="السويداء">السويداء</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">العنوان التفصيلي</label>
+                            <input type="text" class="form-input" id="customerAddress"
+                                placeholder="المنطقة، الشارع، البناء...">
+                        </div>
+                    </div>
+
+                    <button class="btn-primary w-100 mt-4" onclick="nextStep()">
+                        متابعة للدفع
+                        <i class='bx bx-left-arrow-alt'></i>
+                    </button>
+                </div>
+
+                <!-- Step 2: Payment -->
+                <div class="step-content" id="step2">
+                    <div class="payment-card glass-panel-inner">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Syriatel_Logo.png"
+                            alt="Syriatel Cash" class="pay-logo">
+                        <h4 class="pay-title">الدفع عبر سيريتل كاش</h4>
+                        <p class="pay-hint">يرجى تحويل مبلغ <strong class="text-gradient text-lg"
+                                id="selectedModelPrice">150,000</strong> ل.س إلى الرقم التالي:</p>
+
+                        <div class="number-box" onclick="copyNumber()">
+                            <span class="number-val" id="payNumber">0930000000</span>
+                            <i class='bx bx-copy'></i>
+                        </div>
+                        <p class="copy-hint">اضغط لنسخ الرقم</p>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label class="form-label">رقم عملية التحويل (Reference Number)</label>
+                        <input type="text" class="form-input text-center font-bold" id="paymentRef"
+                            placeholder="مثال: 12345678">
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn-secondary flex-1" onclick="prevStep()">رجوع</button>
+                        <button class="btn-primary flex-2" onclick="submitOrder()">تأكيد الطلب <i
+                                class='bx bx-check-circle'></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Success -->
+                <div class="step-content text-center" id="step3">
+                    <div class="success-animation">
+                        <div class="checkmark-circle">
+                            <i class='bx bx-check'></i>
+                        </div>
+                    </div>
+                    <h3 class="success-title">تم استلام طلبك بنجاح!</h3>
+                    <p class="success-text">سنقوم بمعالجة طلبك وشحنه خلال 1 إلى 3 أيام عمل.<br>سنتواصل معك قريباً
+                        للتأكيد.</p>
+                    <button class="btn-secondary mt-4 w-100" onclick="closeOrderModal()">العودة للمتجر</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+
 </html>

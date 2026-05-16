@@ -55,7 +55,7 @@
             "header"
             "gallery"
             "actions";
-        gap: 8px !important;
+        gap: 16px !important;
         padding: 0;
     }
 
@@ -181,11 +181,11 @@
         padding-right: 25px;
         text-align: right;
         width: 100%;
-        color: #3a4553;
+        color: #455161;
     }
 
     .showcase-desc li {
-        margin-bottom: 6px !important;
+        margin-bottom: 5px !important;
         list-style-type: disc;
     }
 

@@ -55,7 +55,7 @@
             "header"
             "gallery"
             "actions";
-        gap: 12px;
+        gap: 8px !important;
         padding: 0;
     }
 
@@ -68,7 +68,7 @@
         align-items: flex-start;
         text-align: right;
         padding-top: 0;
-        gap: 12px;
+        gap: 8px !important;
     }
 
     .showcase-actions {
@@ -80,7 +80,7 @@
 
     /* Gallery & Dots */
     .main-image-wrap {
-        padding: 12px;
+        padding: 8px !important;
         border-radius: 20px;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     }
@@ -167,7 +167,7 @@
     }
 
     .showcase-title {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         margin: 8px 0 10px 0;
         text-align: right;
         line-height: 1.3;
@@ -185,7 +185,7 @@
     }
 
     .showcase-desc li {
-        margin-bottom: 12px;
+        margin-bottom: 6px !important;
         list-style-type: disc;
     }
 

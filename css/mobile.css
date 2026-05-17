@@ -14,7 +14,7 @@
     /* Navbar */
     nav {
         background: #fff !important;
-        padding: 12px 0 !important;
+        padding: 10px 0 !important;
         box-shadow: 0 2px 15px rgba(0,0,0,0.05) !important;
     }
 
@@ -54,8 +54,8 @@
 
     .profile-name {
         font-weight: 700;
-        font-size: 1.3rem;
-        color: var(--primary);
+        font-size: 1.2rem;
+        color: #000;
         text-transform: lowercase;
     }
 
@@ -68,7 +68,7 @@
 
     /* Showcase Layout */
     .product-showcase {
-        padding-top: 50px;
+        padding-top: 70px;
         padding-bottom: 40px;
     }
 

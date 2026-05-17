@@ -14,21 +14,56 @@
     /* Navbar */
     nav {
         background: #fff !important;
-        padding: 8px 0 !important;
+        padding: 12px 0 !important;
         box-shadow: 0 2px 15px rgba(0,0,0,0.05) !important;
     }
-    .logo-text {
-        font-size: 1rem !important;
+
+    .desktop-only {
+        display: none !important;
     }
-    .logo i {
-        font-size: 1.3rem !important;
+
+    .mobile-only {
+        display: flex !important;
     }
-    .nav-link {
-        font-size: 0.8rem !important;
+
+    .mobile-logo-menu {
+        align-items: center;
+        gap: 9px;
     }
-    .btn-secondary, .btn-glass {
-        padding: 6px 12px !important;
-        font-size: 0.8rem !important;
+
+    .mobile-logo-text {
+        font-family: var(--font-main);
+        font-weight: 800;
+        font-size: 1.2rem;
+        color: var(--primary);
+    }
+
+    .mobile-logo-menu i,
+    .mobile-logo-menu svg {
+        width: 26px;
+        height: 26px;
+        color: #000;
+        cursor: pointer;
+    }
+
+    .mobile-profile {
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+    }
+
+    .profile-name {
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--primary);
+        text-transform: lowercase;
+    }
+
+    .mobile-profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
     }
 
     /* Showcase Layout */

@@ -17,6 +17,10 @@
         padding: 10px 0 !important;
         box-shadow: 0 2px 15px rgba(0,0,0,0.05) !important;
     }
+    
+    .nav-container {
+        padding: 0 15px !important;
+    }
 
     .desktop-only {
         display: none !important;
@@ -226,26 +230,48 @@
 
     /* Price & Actions */
     .showcase-price {
+        display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 8px;
-        padding: 16px;
-        margin-bottom: 0;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        padding: 24px 16px 20px;
+        margin-bottom: 5px;
         width: 100%;
-        background: rgba(79, 70, 229, 0.05);
-        border-radius: 16px;
-        border: 1px solid rgba(79, 70, 229, 0.1);
+        background: #fff;
+        border-radius: 20px;
+        position: relative;
+    }
+    
+    .showcase-price::before {
+        content: 'السعر';
+        position: absolute;
+        top: -12px;
+        right: 24px;
+        background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 800;
+        padding: 4px 16px;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
     }
 
     .showcase-price .val {
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-weight: 900;
+        color: var(--primary);
+        line-height: 1;
+        letter-spacing: -1px;
     }
 
     .showcase-price .cur {
-        font-size: 0.95rem;
-        font-weight: 700;
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--primary);
+        background: rgba(79, 70, 229, 0.1);
+        padding: 6px 12px;
+        border-radius: 12px;
     }
 
     .buy-action {

@@ -337,7 +337,7 @@
         color: white;
         padding: 4px 14px;
         border-radius: 8px;
-        font-size: 0.7rem;
+        font-size: 0.5rem;
         font-weight: 800;
     }
 
@@ -352,7 +352,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 15px;
+        gap: 7px;
         margin-bottom: 5px;
     }
 
@@ -366,7 +366,7 @@
         direction: ltr;
         unicode-bidi: isolate;
         display: inline-block;
-        transform: translateY(-7px);
+        transform: translateY(-1px);
     }
 
     .price-main .discount {
@@ -383,7 +383,7 @@
         justify-content: center;
         gap: 6px;
         color: #6b7280;
-        font-size: 1.15rem;
+        font-size: 0.9rem;
         font-weight: 700;
     }
 

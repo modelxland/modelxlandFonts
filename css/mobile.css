@@ -296,7 +296,7 @@
     }
 
     .shipping-notice {
-        margin-top: 0 !important;
+        margin-top: -10px !important;
         padding: 14px 1px;
         border-radius: 12px;
         font-size: 0.8rem !important;
@@ -427,10 +427,10 @@
 
     .btn-syria-icon {
         position: absolute;
-        left: 20px;
+        right: 10px;
         top: 50%;
         transform: translateY(-50%);
-        height: 48px;
+        height: 40px;
         width: auto;
         object-fit: contain;
         filter: brightness(0) invert(1);

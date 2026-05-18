@@ -528,22 +528,56 @@
 
                 <!-- Actions: Price & Buy Button (Appears below image on mobile) -->
                 <div class="showcase-actions">
-                    <div class="showcase-price">
+                    <!-- Desktop Price -->
+                    <div class="showcase-price desktop-only">
                         <span class="val">150,000</span>
                         <span class="cur">ليرة سورية</span>
                     </div>
 
-                    <div class="buy-action">
+                    <!-- Mobile Price -->
+                    <div class="mobile-price-container mobile-only">
+                        <div class="special-badge">
+                            <span class="badge-text">عرض خاص</span>
+                            <span class="badge-time">72:00:00</span>
+                        </div>
+                        <div class="price-main">
+                            <span class="discount">-27%</span>
+                            <span class="amount">$11</span>
+                        </div>
+                        <div class="price-old">
+                            <span>السعر الأصلي : </span>
+                            <span class="old-amount">$15</span>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Button -->
+                    <div class="buy-action desktop-only">
                         <button class="btn-primary buy-btn" onclick="openOrderModal('جرارات التخزين', 150000)">
                             اطلب الآن - توصيل مجاني
                             <i class='bx bx-shopping-bag'></i>
                         </button>
                     </div>
 
-                    <div class="shipping-notice"
+                    <!-- Mobile Button -->
+                    <div class="buy-action mobile-only">
+                        <button class="btn-primary buy-btn mobile-buy-btn" onclick="openOrderModal('جرارات التخزين', 11)">
+                            اطلب الآن - توصيل مجاني
+                            <i class='bx bx-lock-alt' style="font-size: 1.4rem;"></i>
+                        </button>
+                    </div>
+
+                    <!-- Desktop Shipping -->
+                    <div class="shipping-notice desktop-only"
                         style="margin-top: 2px; color: #10b981; font-weight: 700; display: flex; align-items: center; gap: 10px; font-size: 1rem;">
                         <i class='bx bxs-truck' style="font-size: 1.6rem; opacity: 0.8;"></i>
                         متوفر توصيل آمن لجميع المحافظات خلال 1-3 أيام
+                    </div>
+
+                    <!-- Mobile Shipping -->
+                    <div class="shipping-notice mobile-only mobile-shipping"
+                        style="margin-top: 8px; color: #10b981; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.95rem;">
+                        <i class='bx bxs-truck' style="font-size: 1.6rem;"></i>
+                        توصيل آمن ومجاني لجميع المحافظات السورية
                     </div>
                 </div>
             </div>

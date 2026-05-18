@@ -3,10 +3,13 @@
    ========================================================================== */
 
 @media (max-width: 600px) {
+
     /* Background & Grid */
-    .bg-grid, .color-blob {
+    .bg-grid,
+    .color-blob {
         display: none !important;
     }
+
     .bg-container {
         background: var(--bg-color) !important;
     }
@@ -15,9 +18,9 @@
     nav {
         background: #fff !important;
         padding: 10px 0 !important;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.05) !important;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05) !important;
     }
-    
+
     .nav-container {
         padding: 0 15px !important;
     }
@@ -242,7 +245,7 @@
         border-radius: 20px;
         position: relative;
     }
-    
+
     .showcase-price::before {
         content: 'السعر';
         position: absolute;
@@ -306,5 +309,103 @@
     .shipping-notice i {
         font-size: 1.4rem;
         flex-shrink: 0;
+    }
+
+    /* Mobile Custom Price Styling matching screenshot */
+    .mobile-price-container {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+        width: 100%;
+        border-radius: 20px;
+        position: relative;
+    }
+
+    .special-badge {
+        position: absolute;
+        top: -22px;
+        right: 1px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .badge-text {
+        background: #BA4B53;
+        color: white;
+        padding: 4px 14px;
+        border-radius: 8px;
+        font-size: 0.7rem;
+        font-weight: 800;
+    }
+
+    .badge-time {
+        color: #BA4B53;
+        font-weight: 800;
+        font-size: 0.95rem;
+        margin-top: 2px;
+    }
+
+    .price-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 5px;
+    }
+
+    .price-main .amount {
+        font-size: 2.8rem;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-weight: 800;
+        color: #000;
+        line-height: 1;
+        letter-spacing: -1px;
+        direction: ltr;
+        unicode-bidi: isolate;
+        display: inline-block;
+        transform: translateY(-7px);
+    }
+
+    .price-main .discount {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #BA4B53;
+        direction: ltr;
+        unicode-bidi: isolate;
+    }
+
+    .price-old {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        color: #6b7280;
+        font-size: 1.15rem;
+        font-weight: 700;
+    }
+
+    .price-old .old-amount {
+        text-decoration: line-through;
+        direction: ltr;
+        unicode-bidi: isolate;
+        display: inline-block;
+        transform: translateY(3px);
+    }
+
+    .mobile-buy-btn {
+        width: 100%;
+        background: #7148FC !important;
+        box-shadow: 0 10px 30px rgba(113, 72, 252, 0.3) !important;
+        border-radius: 16px !important;
+        padding: 18px 20px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        font-size: 1.25rem !important;
+        font-weight: 700 !important;
     }
 }

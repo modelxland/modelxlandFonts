@@ -449,4 +449,34 @@
             transform: translateY(-50%) translateY(3px);
         }
     }
+
+    /* Tech Specs - Mobile Overrides */
+    .tech-specs {
+        padding: 30px 16px 24px !important;
+    }
+
+    .specs-header {
+        margin-bottom: 20px !important;
+    }
+
+    .specs-subtitle {
+        display: none !important;
+    }
+
+    .specs-grid {
+        background: transparent !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        gap: 12px !important;
+    }
+
+    .specs-title.mobile-only {
+        display: block !important;
+    }
+
+    .specs-title.desktop-only {
+        display: none !important;
+    }
 }

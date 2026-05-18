@@ -456,7 +456,7 @@
     }
 
     .specs-header {
-        margin-bottom: 20px !important;
+        margin-bottom: 30px !important;
     }
 
     .specs-subtitle {
@@ -470,6 +470,14 @@
         box-shadow: none !important;
         border: none !important;
         gap: 12px !important;
+    }
+
+    .spec-item {
+        padding: 14px 20px !important;
+    }
+
+    .spec-label {
+        margin-bottom: 10px !important;
     }
 
     .specs-title.mobile-only {

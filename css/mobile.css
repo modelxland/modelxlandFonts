@@ -317,6 +317,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top: -10px;
         margin-bottom: 15px;
         width: 100%;
         border-radius: 20px;
@@ -325,7 +326,7 @@
 
     .special-badge {
         position: absolute;
-        top: -22px;
+        top: -12px;
         right: 1px;
         display: flex;
         flex-direction: column;
@@ -344,7 +345,7 @@
     .badge-time {
         color: #BA4B53;
         font-weight: 800;
-        font-size: 0.95rem;
+        font-size: 0.8rem;
         margin-top: 2px;
     }
 
@@ -369,6 +370,13 @@
         transform: translateY(-1px);
     }
 
+    .price-main .currency-symbol {
+        font-size: 0.55em;
+        font-weight: 700;
+        vertical-align: 0.28em;
+        margin-right: 4px;
+    }
+
     .price-main .discount {
         font-size: 1.8rem;
         font-weight: 800;
@@ -383,16 +391,22 @@
         justify-content: center;
         gap: 6px;
         color: #6b7280;
-        font-size: 0.9rem;
         font-weight: 700;
     }
 
+    .price-old .old-label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #8b92a0;
+    }
+
     .price-old .old-amount {
+        font-size:1rem;
         text-decoration: line-through;
         direction: ltr;
         unicode-bidi: isolate;
         display: inline-block;
-        transform: translateY(3px);
+        transform: translateY(0);
     }
 
     .mobile-buy-btn {

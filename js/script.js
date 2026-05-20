@@ -253,6 +253,9 @@ function openOrderModal(modelName = 'جرارات التخزين', price = 11) {
     document.getElementById('paymentAmount').innerText = formattedPrice;
 
     modal.classList.add('active');
+    document.documentElement.classList.add('order-modal-open');
+    document.body.classList.add('order-modal-open');
+    document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
 
     selectedPaymentMethod = 'mobile-cash';
@@ -268,6 +271,9 @@ function openOrderModal(modelName = 'جرارات التخزين', price = 11) {
 
 function closeOrderModal() {
     modal.classList.remove('active');
+    document.documentElement.classList.remove('order-modal-open');
+    document.body.classList.remove('order-modal-open');
+    document.documentElement.style.overflow = '';
     document.body.style.overflow = 'auto';
 }
 

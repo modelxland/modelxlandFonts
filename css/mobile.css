@@ -510,4 +510,138 @@
         padding: 0.1em 0;
         display: inline-block;
     }
+
+    /* Order modal - mobile-only sizing. Keep this separate from desktop CSS. */
+    .modal-overlay {
+        padding: 10px !important;
+    }
+
+    .modal-container.order-modal-shell {
+        width: min(100%, 390px);
+        max-width: 390px !important;
+        max-height: calc(100dvh - 20px);
+        border-radius: 22px !important;
+        padding: 13px 15px 17px !important;
+        overflow: hidden !important;
+    }
+
+    .order-modal-shell .order-modal-topbar {
+        height: 23px;
+    }
+
+    .order-modal-shell .order-modal-close {
+        width: 23px;
+        height: 23px;
+        min-width: 23px;
+        font-size: 1rem;
+    }
+
+    .order-back-btn {
+        font-size: 0.74rem;
+        gap: 5px;
+    }
+
+    .order-back-btn i {
+        font-size: 1rem;
+    }
+
+    .order-summary-panel {
+        grid-template-columns: 84px minmax(0, 1fr);
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    .order-summary-image {
+        width: 84px;
+        height: 84px;
+        border-radius: 10px;
+    }
+
+    .order-summary-copy h3 {
+        font-size: 0.88rem;
+        margin-bottom: 6px;
+    }
+
+    .order-price-list {
+        gap: 3px;
+    }
+
+    .order-price-list li {
+        gap: 5px;
+        font-size: 0.64rem;
+    }
+
+    .price-dot {
+        width: 4px;
+        height: 4px;
+    }
+
+    .order-price-value {
+        font-size: 0.72rem;
+        min-width: 25px;
+    }
+
+    .order-divider {
+        margin: 11px 0 12px;
+    }
+
+    .order-modal-shell .payment-method-title {
+        font-size: 1.08rem;
+        margin-bottom: 12px;
+    }
+
+    .order-modal-shell .payment-options-list {
+        gap: 10px;
+    }
+
+    .order-modal-shell .payment-opt-btn {
+        height: 40px;
+        border-radius: 9px;
+    }
+
+    .order-modal-shell .syriatel-mtn .syriatel-side {
+        padding-left: 9px;
+    }
+
+    .order-modal-shell .syriatel-mtn .mtn-side {
+        padding-right: 11px;
+    }
+
+    .order-modal-shell .syriatel-mtn .syriatel-side img {
+        width: 83px;
+    }
+
+    .order-modal-shell .syriatel-mtn .mtn-side img {
+        width: 54px;
+    }
+
+    .order-modal-shell .payment-opt-btn.card-option {
+        gap: 8px;
+        padding: 0 12px;
+    }
+
+    .order-modal-shell .payment-opt-btn.card-option > span:not(.credit-card-stack) {
+        font-size: 0.86rem;
+        white-space: nowrap;
+    }
+
+    .credit-card-stack {
+        flex-basis: 36px;
+        height: 36px;
+        transform: scale(0.46);
+    }
+
+    .order-modal-shell .payment-opt-btn.sham-option {
+        padding: 0 12px;
+    }
+
+    .order-modal-shell .payment-opt-btn.sham-option img {
+        width: 29px;
+        height: 29px;
+        border-radius: 6px;
+    }
+
+    .order-modal-shell .payment-opt-btn.sham-option span {
+        font-size: 0.95rem;
+    }
 }

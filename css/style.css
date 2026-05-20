@@ -1054,24 +1054,24 @@ select.form-input { cursor: pointer; }
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
     overflow-y: auto;
-    padding: clamp(32px, 8.5vh, 89px) 20px 34px !important;
+    padding: 28px 20px !important;
 }
 
 .modal-container.order-modal-shell {
-    width: min(660px, calc(100vw - 64px));
-    max-width: 660px !important;
-    max-height: calc(100vh - 48px);
-    overflow-y: auto;
+    width: min(540px, calc(100vw - 40px));
+    max-width: 540px !important;
+    max-height: none;
+    overflow: visible;
     background: linear-gradient(135deg, #f7f7f4 0%, #ffffff 58%, #f6f7f5 100%) !important;
     border: none !important;
-    border-radius: 39px !important;
-    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.28) !important;
-    padding: 28px 33px 48px !important;
+    border-radius: 32px !important;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.26) !important;
+    padding: 22px 28px 34px !important;
     transform: translateY(24px) scale(0.98);
 }
 
 .modal-container.order-modal-shell[data-step="step1"] {
-    min-height: min(918px, calc(100vh - 123px));
+    min-height: 0;
 }
 
 .modal-overlay.active .modal-container.order-modal-shell {
@@ -1083,14 +1083,14 @@ select.form-input { cursor: pointer; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 36px;
+    height: 30px;
 }
 
 .order-modal-shell .order-modal-close {
     position: static;
-    width: 35px;
-    height: 35px;
-    min-width: 35px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
     background: #e9e9e9;
     border: none;
     border-radius: 50%;
@@ -1098,7 +1098,7 @@ select.form-input { cursor: pointer; }
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.55rem;
+    font-size: 1.35rem;
     line-height: 1;
     transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
@@ -1118,9 +1118,9 @@ select.form-input { cursor: pointer; }
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-family: var(--font-main);
-    font-size: 1.08rem;
+    font-size: 0.96rem;
     font-weight: 900;
     letter-spacing: 0;
     padding: 0;
@@ -1132,7 +1132,7 @@ select.form-input { cursor: pointer; }
 }
 
 .order-back-btn i {
-    font-size: 1.55rem;
+    font-size: 1.35rem;
     line-height: 1;
 }
 
@@ -1143,16 +1143,16 @@ select.form-input { cursor: pointer; }
 .order-summary-panel {
     direction: ltr;
     display: grid;
-    grid-template-columns: 208px minmax(0, 1fr);
+    grid-template-columns: 154px minmax(0, 1fr);
     align-items: center;
-    gap: 66px;
-    margin-top: 35px;
+    gap: 32px;
+    margin-top: 28px;
 }
 
 .order-summary-image {
-    width: 208px;
-    height: 207px;
-    border-radius: 18px;
+    width: 154px;
+    height: 154px;
+    border-radius: 15px;
     object-fit: cover;
     object-position: 51% 47%;
     display: block;
@@ -1164,13 +1164,13 @@ select.form-input { cursor: pointer; }
 }
 
 .order-summary-copy h3 {
-    margin: 0 0 22px;
+    margin: 0 0 16px;
     background: linear-gradient(135deg, #7580f1 0%, #5aa9d6 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: #628ce4;
-    font-size: 1.78rem;
+    font-size: 1.36rem;
     font-weight: 900;
     letter-spacing: 0;
     line-height: 1.15;
@@ -1180,7 +1180,7 @@ select.form-input { cursor: pointer; }
 .order-price-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -1190,9 +1190,9 @@ select.form-input { cursor: pointer; }
     direction: rtl;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     color: #7c8495;
-    font-size: 1.33rem;
+    font-size: 1rem;
     font-weight: 800;
     line-height: 1.25;
     letter-spacing: 0;
@@ -1214,41 +1214,41 @@ select.form-input { cursor: pointer; }
 .order-price-value {
     direction: ltr;
     color: #5f8bd7;
-    font-size: 1.45rem;
+    font-size: 1.1rem;
     font-weight: 900;
     margin-right: auto;
-    min-width: 58px;
+    min-width: 46px;
     text-align: left;
 }
 
 .order-divider {
     height: 1px;
     background: #9f9f9f;
-    margin: 23px 0 40px;
+    margin: 20px 0 28px;
     opacity: 0.78;
 }
 
 .order-modal-shell .payment-method-title {
     color: #030303;
-    font-size: 2.18rem;
+    font-size: 1.76rem;
     font-weight: 900;
     letter-spacing: 0;
     line-height: 1.15;
-    margin: 0 0 55px;
+    margin: 0 0 30px;
     text-align: center;
 }
 
 .order-modal-shell .payment-options-list {
     display: flex;
     flex-direction: column;
-    gap: 54px;
+    gap: 28px;
 }
 
 .order-modal-shell .payment-opt-btn {
     width: 100%;
-    height: 89px;
+    height: 64px;
     border: none;
-    border-radius: 17px;
+    border-radius: 14px;
     box-shadow: none;
     cursor: pointer;
     overflow: hidden;
@@ -1278,24 +1278,24 @@ select.form-input { cursor: pointer; }
 .order-modal-shell .syriatel-mtn .syriatel-side {
     left: 0;
     width: 48%;
-    padding-left: 21px;
+    padding-left: 18px;
 }
 
 .order-modal-shell .syriatel-mtn .mtn-side {
     right: 0;
     width: 48%;
-    padding-right: 24px;
+    padding-right: 20px;
 }
 
 .order-modal-shell .syriatel-mtn .syriatel-side img {
-    width: 190px;
+    width: 142px;
     max-width: 92%;
     height: auto;
     object-fit: contain;
 }
 
 .order-modal-shell .syriatel-mtn .mtn-side img {
-    width: 123px;
+    width: 94px;
     max-width: 78%;
     height: auto;
     object-fit: contain;
@@ -1308,16 +1308,16 @@ select.form-input { cursor: pointer; }
     box-shadow: 0 22px 34px rgba(116, 76, 185, 0.24);
     color: #fff;
     display: flex;
-    gap: 31px;
+    gap: 20px;
     justify-content: flex-start;
-    padding: 0 30px;
+    padding: 0 24px;
 }
 
 .order-modal-shell .payment-opt-btn.card-option > span:not(.credit-card-stack) {
     color: #fff;
     flex: 1;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.12rem;
+    font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 0;
     line-height: 1;
@@ -1327,9 +1327,11 @@ select.form-input { cursor: pointer; }
 
 .credit-card-stack {
     display: block;
-    flex: 0 0 88px;
+    flex: 0 0 64px;
     height: 58px;
     position: relative;
+    transform: scale(0.78);
+    transform-origin: left center;
 }
 
 .credit-card-back {
@@ -1403,15 +1405,15 @@ select.form-input { cursor: pointer; }
     box-shadow: 0 18px 30px rgba(52, 54, 157, 0.18);
     color: #fff;
     display: flex;
-    gap: 78px;
+    gap: 44px;
     justify-content: flex-start;
-    padding: 0 31px;
+    padding: 0 24px;
 }
 
 .order-modal-shell .payment-opt-btn.sham-option img {
-    width: 68px;
-    height: 68px;
-    border-radius: 11px;
+    width: 50px;
+    height: 50px;
+    border-radius: 9px;
     object-fit: cover;
     box-shadow: none;
 }
@@ -1421,7 +1423,7 @@ select.form-input { cursor: pointer; }
     left: 0;
     position: absolute;
     right: 0;
-    font-size: 2.42rem;
+    font-size: 1.82rem;
     font-weight: 800;
     letter-spacing: 0;
     line-height: 1;
@@ -1437,129 +1439,151 @@ select.form-input { cursor: pointer; }
 .order-modal-shell[data-step="step3"],
 .order-modal-shell[data-step="step4"] {
     min-height: 0;
-    max-width: 560px !important;
+    max-width: 500px !important;
 }
 
-@media (max-width: 700px) {
-    .modal-overlay {
-        padding: 22px 12px !important;
-    }
-
-    .modal-container.order-modal-shell {
-        width: 100%;
-        max-height: calc(100vh - 44px);
-        border-radius: 30px !important;
-        padding: 22px 20px 30px !important;
-    }
-
-    .modal-container.order-modal-shell[data-step="step1"] {
-        min-height: 0;
-    }
-
-    .order-summary-panel {
-        grid-template-columns: 118px minmax(0, 1fr);
-        gap: 17px;
-        margin-top: 24px;
-    }
-
-    .order-summary-image {
-        width: 118px;
-        height: 118px;
-        border-radius: 15px;
-    }
-
-    .order-summary-copy h3 {
-        font-size: 1.32rem;
-        margin-bottom: 13px;
-    }
-
-    .order-price-list {
-        gap: 9px;
-    }
-
-    .order-price-list li {
-        gap: 8px;
-        font-size: 0.94rem;
-    }
-
-    .order-price-value {
-        font-size: 1.04rem;
-        min-width: 40px;
-    }
-
-    .order-divider {
-        margin: 22px 0 28px;
-    }
-
-    .order-modal-shell .payment-method-title {
-        font-size: 1.62rem;
-        margin-bottom: 25px;
-    }
-
-    .order-modal-shell .payment-options-list {
-        gap: 23px;
-    }
-
-    .order-modal-shell .payment-opt-btn {
-        height: 72px;
-        border-radius: 15px;
-    }
-
-    .order-modal-shell .syriatel-mtn .syriatel-side img {
-        width: 136px;
-    }
-
-    .order-modal-shell .syriatel-mtn .mtn-side img {
-        width: 86px;
-    }
-
-    .order-modal-shell .payment-opt-btn.card-option {
-        gap: 21px;
-        padding: 0 20px;
-    }
-
-    .order-modal-shell .payment-opt-btn.card-option > span:not(.credit-card-stack) {
-        font-size: 1.34rem;
-        white-space: normal;
-    }
-
-    .credit-card-stack {
-        flex-basis: 68px;
-        transform: scale(0.82);
-        transform-origin: left center;
-    }
-
-    .order-modal-shell .payment-opt-btn.sham-option {
-        gap: 32px;
-        padding: 0 20px;
-    }
-
-    .order-modal-shell .payment-opt-btn.sham-option img {
-        width: 52px;
-        height: 52px;
-    }
-
-    .order-modal-shell .payment-opt-btn.sham-option span {
-        font-size: 1.76rem;
-    }
+/* Compact no-scroll order modal for desktop and tablets. Mobile overrides live in mobile.css. */
+html.order-modal-open,
+body.order-modal-open {
+    height: 100%;
+    overflow: hidden !important;
 }
 
-@media (max-width: 420px) {
-    .order-summary-panel {
-        grid-template-columns: 104px minmax(0, 1fr);
-    }
+.modal-overlay {
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100dvh;
+    overflow: hidden !important;
+    padding: 12px !important;
+}
 
-    .order-summary-image {
-        width: 104px;
-        height: 104px;
-    }
+.modal-container.order-modal-shell {
+    width: min(430px, calc(100vw - 32px));
+    max-width: 430px !important;
+    max-height: calc(100dvh - 24px);
+    overflow: hidden !important;
+    border-radius: 24px !important;
+    padding: 16px 22px 22px !important;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28) !important;
+}
 
-    .order-price-list li {
-        font-size: 0.82rem;
-    }
+.order-modal-shell .order-modal-topbar {
+    height: 24px;
+}
 
-    .order-price-value {
-        font-size: 0.94rem;
-        min-width: 34px;
-    }
+.order-modal-shell .order-modal-close {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    font-size: 1.08rem;
+}
+
+.order-back-btn {
+    gap: 6px;
+    font-size: 0.78rem;
+}
+
+.order-back-btn i {
+    font-size: 1.08rem;
+}
+
+.order-summary-panel {
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 22px;
+    margin-top: 16px;
+}
+
+.order-summary-image {
+    width: 112px;
+    height: 112px;
+    border-radius: 12px;
+}
+
+.order-summary-copy h3 {
+    font-size: 1rem;
+    margin-bottom: 9px;
+}
+
+.order-price-list {
+    gap: 5px;
+}
+
+.order-price-list li {
+    gap: 7px;
+    font-size: 0.76rem;
+}
+
+.price-dot {
+    width: 5px;
+    height: 5px;
+}
+
+.order-price-value {
+    font-size: 0.86rem;
+    min-width: 32px;
+}
+
+.order-divider {
+    margin: 14px 0 18px;
+}
+
+.order-modal-shell .payment-method-title {
+    font-size: 1.22rem;
+    margin-bottom: 16px;
+}
+
+.order-modal-shell .payment-options-list {
+    gap: 14px;
+}
+
+.order-modal-shell .payment-opt-btn {
+    height: 46px;
+    border-radius: 10px;
+}
+
+.order-modal-shell .syriatel-mtn .syriatel-side {
+    padding-left: 14px;
+}
+
+.order-modal-shell .syriatel-mtn .mtn-side {
+    padding-right: 16px;
+}
+
+.order-modal-shell .syriatel-mtn .syriatel-side img {
+    width: 105px;
+}
+
+.order-modal-shell .syriatel-mtn .mtn-side img {
+    width: 68px;
+}
+
+.order-modal-shell .payment-opt-btn.card-option {
+    gap: 12px;
+    padding: 0 18px;
+    box-shadow: 0 14px 22px rgba(116, 76, 185, 0.2);
+}
+
+.order-modal-shell .payment-opt-btn.card-option > span:not(.credit-card-stack) {
+    font-size: 1.05rem;
+}
+
+.credit-card-stack {
+    flex-basis: 48px;
+    height: 44px;
+    transform: scale(0.58);
+}
+
+.order-modal-shell .payment-opt-btn.sham-option {
+    padding: 0 18px;
+    box-shadow: 0 12px 22px rgba(52, 54, 157, 0.18);
+}
+
+.order-modal-shell .payment-opt-btn.sham-option img {
+    width: 34px;
+    height: 34px;
+    border-radius: 7px;
+}
+
+.order-modal-shell .payment-opt-btn.sham-option span {
+    font-size: 1.15rem;
 }

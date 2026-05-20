@@ -771,3 +771,795 @@ select.form-input { cursor: pointer; }
 .shipping-info i {
     font-size: 1.4rem;
 }
+
+/* ==========================================================================
+   Premium Payment Selection Modal
+   ========================================================================== */
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.modal-container {
+    background: #ffffff !important;
+    border-radius: 36px !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    border: none !important;
+    padding: 10px !important;
+}
+
+.modal-top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 12px 24px 8px;
+}
+
+.modal-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    font-family: var(--font-main);
+}
+
+.modal-back-btn:hover {
+    transform: translateX(4px);
+    color: var(--primary);
+}
+
+.modal-close-btn {
+    background: rgba(0,0,0,0.05);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.product-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(244, 246, 251, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 24px;
+    padding: 16px;
+    margin-bottom: 24px;
+    text-align: right;
+}
+
+.product-summary-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.product-summary-info {
+    flex: 1;
+}
+
+.product-summary-info h4 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.product-summary-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-summary-info li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-summary-info li span.price-label {
+    font-weight: 500;
+}
+
+.product-summary-info li span.price-value {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.payment-method-title {
+    font-size: 1.4rem;
+    font-weight: 850;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+.payment-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Payment option buttons */
+.payment-opt-btn {
+    width: 100%;
+    height: 72px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.payment-opt-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.payment-opt-btn.syriatel-mtn {
+    background: linear-gradient(110deg, #ffffff 49.5%, #f2c918 50%);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.syriatel-mtn .syriatel-side {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.syriatel-mtn .syriatel-side img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+
+.syriatel-mtn .mtn-side {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.syriatel-mtn .mtn-side img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Button 2: Credit Card */
+.payment-opt-btn.card-option {
+    background: linear-gradient(135deg, #7148FC, #8B5CF6);
+    color: #fff;
+    border: none;
+    justify-content: flex-start;
+    padding: 0 24px;
+    gap: 16px;
+    box-shadow: 0 8px 16px rgba(113, 72, 252, 0.2);
+}
+
+.payment-opt-btn.card-option:hover {
+    box-shadow: 0 12px 24px rgba(113, 72, 252, 0.35);
+}
+
+.payment-opt-btn.card-option i {
+    font-size: 2.2rem;
+}
+
+.payment-opt-btn.card-option span {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Button 3: Sham Cash */
+.payment-opt-btn.sham-option {
+    background: linear-gradient(135deg, #1b4d8f, #2e7bd6);
+    color: #fff;
+    border: none;
+    justify-content: flex-start;
+    padding: 0 24px;
+    gap: 16px;
+    box-shadow: 0 8px 16px rgba(27, 77, 143, 0.2);
+}
+
+.payment-opt-btn.sham-option:hover {
+    box-shadow: 0 12px 24px rgba(27, 77, 143, 0.35);
+}
+
+.payment-opt-btn.sham-option img {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-opt-btn.sham-option span {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Transfer details container styling */
+.transfer-number-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.simulated-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    text-align: right;
+}
+
+.card-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* ==========================================================================
+   Screenshot Order Payment Chooser
+   ========================================================================== */
+.modal-overlay {
+    align-items: flex-start !important;
+    background: rgba(0, 0, 0, 0.74) !important;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    overflow-y: auto;
+    padding: clamp(32px, 8.5vh, 89px) 20px 34px !important;
+}
+
+.modal-container.order-modal-shell {
+    width: min(660px, calc(100vw - 64px));
+    max-width: 660px !important;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    background: linear-gradient(135deg, #f7f7f4 0%, #ffffff 58%, #f6f7f5 100%) !important;
+    border: none !important;
+    border-radius: 39px !important;
+    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.28) !important;
+    padding: 28px 33px 48px !important;
+    transform: translateY(24px) scale(0.98);
+}
+
+.modal-container.order-modal-shell[data-step="step1"] {
+    min-height: min(918px, calc(100vh - 123px));
+}
+
+.modal-overlay.active .modal-container.order-modal-shell {
+    transform: translateY(0) scale(1);
+}
+
+.order-modal-shell .order-modal-topbar {
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 36px;
+}
+
+.order-modal-shell .order-modal-close {
+    position: static;
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    background: #e9e9e9;
+    border: none;
+    border-radius: 50%;
+    color: #55595f;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.55rem;
+    line-height: 1;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.order-modal-shell .order-modal-close:hover {
+    background: #dcdcdc;
+    color: #111;
+    transform: scale(1.04);
+}
+
+.order-back-btn {
+    direction: ltr;
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: #050505;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-main);
+    font-size: 1.08rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    padding: 0;
+    transition: transform 0.2s ease;
+}
+
+.order-back-btn:hover {
+    transform: translateX(3px);
+}
+
+.order-back-btn i {
+    font-size: 1.55rem;
+    line-height: 1;
+}
+
+.order-modal-body {
+    padding: 0 !important;
+}
+
+.order-summary-panel {
+    direction: ltr;
+    display: grid;
+    grid-template-columns: 208px minmax(0, 1fr);
+    align-items: center;
+    gap: 66px;
+    margin-top: 35px;
+}
+
+.order-summary-image {
+    width: 208px;
+    height: 207px;
+    border-radius: 18px;
+    object-fit: cover;
+    object-position: 51% 47%;
+    display: block;
+}
+
+.order-summary-copy {
+    direction: rtl;
+    min-width: 0;
+}
+
+.order-summary-copy h3 {
+    margin: 0 0 22px;
+    background: linear-gradient(135deg, #7580f1 0%, #5aa9d6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #628ce4;
+    font-size: 1.78rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.15;
+    text-align: right;
+}
+
+.order-price-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.order-price-list li {
+    direction: rtl;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #7c8495;
+    font-size: 1.33rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: 0;
+    white-space: nowrap;
+}
+
+.price-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #737b8b;
+    flex: 0 0 auto;
+}
+
+.order-price-label {
+    color: #788191;
+}
+
+.order-price-value {
+    direction: ltr;
+    color: #5f8bd7;
+    font-size: 1.45rem;
+    font-weight: 900;
+    margin-right: auto;
+    min-width: 58px;
+    text-align: left;
+}
+
+.order-divider {
+    height: 1px;
+    background: #9f9f9f;
+    margin: 23px 0 40px;
+    opacity: 0.78;
+}
+
+.order-modal-shell .payment-method-title {
+    color: #030303;
+    font-size: 2.18rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.15;
+    margin: 0 0 55px;
+    text-align: center;
+}
+
+.order-modal-shell .payment-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+}
+
+.order-modal-shell .payment-opt-btn {
+    width: 100%;
+    height: 89px;
+    border: none;
+    border-radius: 17px;
+    box-shadow: none;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.order-modal-shell .payment-opt-btn:hover {
+    filter: brightness(1.02);
+    transform: translateY(-2px);
+}
+
+.order-modal-shell .payment-opt-btn.syriatel-mtn {
+    background: linear-gradient(59deg, #f3f3f9 0 47.2%, #f8d541 47.4% 100%);
+}
+
+.order-modal-shell .syriatel-mtn .syriatel-side,
+.order-modal-shell .syriatel-mtn .mtn-side {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-modal-shell .syriatel-mtn .syriatel-side {
+    left: 0;
+    width: 48%;
+    padding-left: 21px;
+}
+
+.order-modal-shell .syriatel-mtn .mtn-side {
+    right: 0;
+    width: 48%;
+    padding-right: 24px;
+}
+
+.order-modal-shell .syriatel-mtn .syriatel-side img {
+    width: 190px;
+    max-width: 92%;
+    height: auto;
+    object-fit: contain;
+}
+
+.order-modal-shell .syriatel-mtn .mtn-side img {
+    width: 123px;
+    max-width: 78%;
+    height: auto;
+    object-fit: contain;
+}
+
+.order-modal-shell .payment-opt-btn.card-option {
+    direction: ltr;
+    align-items: center;
+    background: linear-gradient(90deg, #8b73da 0%, #724cb9 100%);
+    box-shadow: 0 22px 34px rgba(116, 76, 185, 0.24);
+    color: #fff;
+    display: flex;
+    gap: 31px;
+    justify-content: flex-start;
+    padding: 0 30px;
+}
+
+.order-modal-shell .payment-opt-btn.card-option > span:not(.credit-card-stack) {
+    color: #fff;
+    flex: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.12rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.credit-card-stack {
+    display: block;
+    flex: 0 0 88px;
+    height: 58px;
+    position: relative;
+}
+
+.credit-card-back {
+    position: absolute;
+    left: 1px;
+    top: 7px;
+    width: 64px;
+    height: 42px;
+    background: linear-gradient(135deg, #f9d968, #f2b85a);
+    border-radius: 7px;
+    transform: rotate(-12deg);
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.13);
+}
+
+.credit-card-front {
+    position: absolute;
+    left: 14px;
+    top: 15px;
+    width: 64px;
+    height: 42px;
+    background: linear-gradient(135deg, #87c5f6, #5f96dd);
+    border-radius: 7px;
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.16);
+    overflow: hidden;
+}
+
+.credit-card-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 9px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.46);
+}
+
+.credit-card-chip {
+    position: absolute;
+    left: 9px;
+    bottom: 8px;
+    width: 18px;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.62);
+}
+
+.credit-card-marks::before,
+.credit-card-marks::after {
+    content: "";
+    position: absolute;
+    bottom: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+.credit-card-marks::before {
+    right: 16px;
+    background: #f9cd4d;
+}
+
+.credit-card-marks::after {
+    right: 7px;
+    background: #f0665b;
+}
+
+.order-modal-shell .payment-opt-btn.sham-option {
+    direction: ltr;
+    align-items: center;
+    background: linear-gradient(90deg, #75a8ab 0%, #34369d 100%);
+    box-shadow: 0 18px 30px rgba(52, 54, 157, 0.18);
+    color: #fff;
+    display: flex;
+    gap: 78px;
+    justify-content: flex-start;
+    padding: 0 31px;
+}
+
+.order-modal-shell .payment-opt-btn.sham-option img {
+    width: 68px;
+    height: 68px;
+    border-radius: 11px;
+    object-fit: cover;
+    box-shadow: none;
+}
+
+.order-modal-shell .payment-opt-btn.sham-option span {
+    color: #fff;
+    left: 0;
+    position: absolute;
+    right: 0;
+    font-size: 2.42rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.order-modal-shell .order-flow-step {
+    padding-top: 24px;
+}
+
+.order-modal-shell[data-step="step2"],
+.order-modal-shell[data-step="step3"],
+.order-modal-shell[data-step="step4"] {
+    min-height: 0;
+    max-width: 560px !important;
+}
+
+@media (max-width: 700px) {
+    .modal-overlay {
+        padding: 22px 12px !important;
+    }
+
+    .modal-container.order-modal-shell {
+        width: 100%;
+        max-height: calc(100vh - 44px);
+        border-radius: 30px !important;
+        padding: 22px 20px 30px !important;
+    }
+
+    .modal-container.order-modal-shell[data-step="step1"] {
+        min-height: 0;
+    }
+
+    .order-summary-panel {
+        grid-template-columns: 118px minmax(0, 1fr);
+        gap: 17px;
+        margin-top: 24px;
+    }
+
+    .order-summary-image {
+        width: 118px;
+        height: 118px;
+        border-radius: 15px;
+    }
+
+    .order-summary-copy h3 {
+        font-size: 1.32rem;
+        margin-bottom: 13px;
+    }
+
+    .order-price-list {
+        gap: 9px;
+    }
+
+    .order-price-list li {
+        gap: 8px;
+        font-size: 0.94rem;
+    }
+
+    .order-price-value {
+        font-size: 1.04rem;
+        min-width: 40px;
+    }
+
+    .order-divider {
+        margin: 22px 0 28px;
+    }
+
+    .order-modal-shell .payment-method-title {
+        font-size: 1.62rem;
+        margin-bottom: 25px;
+    }
+
+    .order-modal-shell .payment-options-list {
+        gap: 23px;
+    }
+
+    .order-modal-shell .payment-opt-btn {
+        height: 72px;
+        border-radius: 15px;
+    }
+
+    .order-modal-shell .syriatel-mtn .syriatel-side img {
+        width: 136px;
+    }
+
+    .order-modal-shell .syriatel-mtn .mtn-side img {
+        width: 86px;
+    }
+
+    .order-modal-shell .payment-opt-btn.card-option {
+        gap: 21px;
+        padding: 0 20px;
+    }
+
+    .order-modal-shell .payment-opt-btn.card-option > span:not(.credit-card-stack) {
+        font-size: 1.34rem;
+        white-space: normal;
+    }
+
+    .credit-card-stack {
+        flex-basis: 68px;
+        transform: scale(0.82);
+        transform-origin: left center;
+    }
+
+    .order-modal-shell .payment-opt-btn.sham-option {
+        gap: 32px;
+        padding: 0 20px;
+    }
+
+    .order-modal-shell .payment-opt-btn.sham-option img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .order-modal-shell .payment-opt-btn.sham-option span {
+        font-size: 1.76rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .order-summary-panel {
+        grid-template-columns: 104px minmax(0, 1fr);
+    }
+
+    .order-summary-image {
+        width: 104px;
+        height: 104px;
+    }
+
+    .order-price-list li {
+        font-size: 0.82rem;
+    }
+
+    .order-price-value {
+        font-size: 0.94rem;
+        min-width: 34px;
+    }
+}

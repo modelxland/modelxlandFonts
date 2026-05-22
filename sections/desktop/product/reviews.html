@@ -1,0 +1,97 @@
+<!-- ============================================================
+     Reviews Section
+     Place this between <section class="highlights"> and <footer>
+     ============================================================ -->
+<section class="reviews-section">
+
+    <!-- Header -->
+    <div class="reviews-header reveal">
+        <div class="reviews-eyebrow">
+            <i class='bx bxs-star'></i>
+            آراء المشترين
+        </div>
+        <h2 class="reviews-title">ماذا يقول <span class="text-gradient">عملاؤنا</span> ؟</h2>
+        <p class="reviews-subtitle text-muted">آراء حقيقية من أشخاص اشتروا المنتج وجرّبوه بأنفسهم</p>
+    </div>
+
+    <!-- Summary Card -->
+    <div class="reviews-summary reveal delay-1" id="reviewsSummary">
+        <div class="summary-score">
+            <span class="score-number" id="avgScore">4.8</span>
+            <div class="score-stars" id="avgStars">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star-half'></i>
+            </div>
+            <span class="score-label" id="totalLabel">بناءً على 5 تقييم</span>
+        </div>
+
+        <div class="summary-breakdown" id="breakdownContainer">
+            <!-- JS fills this -->
+        </div>
+    </div>
+
+    <!-- Write Review Form -->
+    <div class="write-review-wrap reveal delay-2">
+        <h3 class="write-review-title">
+            <i class='bx bx-edit-alt'></i>
+            أضف تقييمك
+        </h3>
+
+        <div class="review-form-grid">
+            <!-- Name -->
+            <div class="form-field">
+                <label class="form-label" for="reviewerName">اسمك</label>
+                <input class="form-input" type="text" id="reviewerName" placeholder="مثال: أحمد الشيخ" maxlength="40">
+            </div>
+
+            <!-- City -->
+            <div class="form-field">
+                <label class="form-label" for="reviewerCity">مدينتك (اختياري)</label>
+                <input class="form-input" type="text" id="reviewerCity" placeholder="مثال: دمشق" maxlength="30">
+            </div>
+
+            <!-- Stars -->
+            <div class="form-field">
+                <label class="form-label">تقييمك</label>
+                <div class="star-picker" id="starPicker">
+                    <input type="radio" name="rating" id="s5" value="5"><label for="s5">★</label>
+                    <input type="radio" name="rating" id="s4" value="4"><label for="s4">★</label>
+                    <input type="radio" name="rating" id="s3" value="3"><label for="s3">★</label>
+                    <input type="radio" name="rating" id="s2" value="2"><label for="s2">★</label>
+                    <input type="radio" name="rating" id="s1" value="1"><label for="s1">★</label>
+                </div>
+            </div>
+
+            <!-- Comment -->
+            <div class="form-field full-width">
+                <label class="form-label" for="reviewText">تعليقك</label>
+                <textarea class="form-textarea" id="reviewText"
+                    placeholder="شاركنا تجربتك مع المنتج… ما الذي أعجبك؟ هل تنصح به؟"
+                    maxlength="400"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-field">
+                <button class="btn-submit-review" onclick="submitReview()">
+                    نشر التقييم
+                    <i class='bx bx-send'></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Grid -->
+    <div class="reviews-grid" id="reviewsGrid">
+        <!-- Seeded reviews + dynamic ones render here -->
+    </div>
+
+</section>
+
+<!-- Toast notification -->
+<div class="review-toast" id="reviewToast">
+    <i class='bx bx-check-circle'></i>
+    شكراً! تم نشر تقييمك بنجاح 🎉
+</div>

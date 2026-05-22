@@ -16,424 +16,14 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        .product-showcase {
-            padding-top: 140px;
-            padding-bottom: 100px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .showcase-card {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 40px;
-            padding: 30px;
-            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.05);
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .showcase-container {
-            display: grid;
-            grid-template-columns: 1.15fr 1fr;
-            /* Slightly more balanced for text */
-            grid-template-rows: auto 1fr;
-            grid-template-areas:
-                "gallery header"
-                "gallery actions";
-            gap: 0 70px;
-            align-items: stretch;
-        }
-
-        @media (max-width: 968px) {
-            .showcase-card {
-                padding: 30px;
-                border-radius: 30px;
-                margin: 0 15px;
-            }
-
-            .showcase-container {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto;
-                grid-template-areas:
-                    "header"
-                    "gallery"
-                    "actions";
-                gap: 30px;
-            }
-        }
-
-        .gallery-container {
-            grid-area: gallery;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .showcase-header {
-            grid-area: header;
-            padding-top: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            /* More breathing room */
-            text-align: right;
-        }
-
-        .showcase-actions {
-            grid-area: actions;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            padding-bottom: 5px;
-        }
-
-        .shipping-notice {
-            margin-top: auto;
-            /* This pushes ONLY the shipping notice to the bottom */
-            padding-top: 20px;
-        }
-
-        /* Gallery Styles */
-        .main-image-wrap {
-            background: #ffffff00;
-            border-radius: 32px;
-            padding: 20px;
-            /* More inner padding */
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
-            overflow: hidden;
-            position: relative;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .main-image-wrap:hover {
-            transform: translateY(-5px) scale(1.01);
-        }
-
-        .main-image-wrap img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 20px;
-            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
-            transition: opacity 0.4s ease;
-        }
-
-        .thumbnails-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            margin-top: 10px;
-        }
-
-        .thumb-item {
-            background: #fff;
-            border-radius: 12px;
-            padding: 8px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-        }
-
-        .thumb-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 6px;
-        }
-
-        .thumb-item.active {
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.1);
-        }
-
-        .thumb-item:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Dots Navigation (Visible on both PC and Mobile) */
-        .dots-navigation {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .nav-btn {
-            background: none;
-            border: none;
-            color: var(--text-main);
-            font-size: 1.8rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: color 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            color: var(--primary);
-        }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.5);
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            width: 24px;
-            border-radius: 4px;
-            background: var(--primary);
-        }
-
-        .badges-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: flex-end;
-        }
-
-        .title-row {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .pro-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(79, 70, 229, 0.1);
-            color: var(--primary);
-            padding: 6px 12px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .showcase-title {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-top: 30px;
-            color: var(--text-main);
-            letter-spacing: -1px;
-        }
-
-        .showcase-desc {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            line-height: 1.9;
-            margin-bottom: 30px;
-            max-width: 100%;
-            text-align: right;
-            opacity: 0.9;
-        }
-
-        .showcase-price {
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 24px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-            justify-content: flex-start;
-        }
-
-        .showcase-price .val {
-            font-size: clamp(2.5rem, 6vw, 3.8rem);
-            font-weight: 900;
-            color: var(--primary);
-            line-height: 1;
-            letter-spacing: -1px;
-        }
-
-        .showcase-price .cur {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-muted);
-        }
-
-        .buy-action {
-            display: flex;
-            gap: 16px;
-        }
-
-        .buy-btn {
-            flex: 1 !important;
-            font-size: 1.25rem !important;
-            padding: 20px 32px !important;
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%) !important;
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3) !important;
-            border-radius: 16px !important;
-            position: relative !important;
-            overflow: hidden !important;
-        }
-
-        .buy-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: 0.5s;
-        }
-
-        .buy-btn:hover::after {
-            left: 100%;
-        }
-
-        /* Highlights */
-        .highlights {
-            padding: 60px 24px;
-            background: #fff;
-        }
-
-        .highlights-grid {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .hl-card {
-            padding: 30px;
-            background: var(--bg-color);
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.02);
-        }
-
-        .hl-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .hl-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .hl-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Tech Specs Redesign - Grid/Schedule Layout */
-        .tech-specs {
-            padding: 80px 24px;
-            background: #f8fafc;
-        }
-
-        .specs-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .specs-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .specs-title {
-            font-size: 2.2rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-        }
-
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            background: #fff;
-            padding: 40px;
-            border-radius: 32px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .spec-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            border-radius: 16px;
-            background: #fdfdfd;
-            border: 1px solid rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-        }
-
-        .spec-item:hover {
-            border-color: var(--primary);
-            background: #fff;
-            transform: scale(1.02);
-        }
-
-        .spec-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(79, 70, 229, 0.08);
-            color: var(--primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .spec-details {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .spec-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .spec-value {
-            font-size: 1.1rem;
-            color: var(--text-main);
-            font-weight: 700;
-        }
-    </style>
-    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/shared/base.css">
+    <link rel="stylesheet" href="css/shared/footer.css">
+    <link rel="stylesheet" href="css/desktop/product-page.css">
+    <link rel="stylesheet" href="css/desktop/checkout-modal.css">
+    <link rel="stylesheet" href="css/shared/performance.css">
+    <link rel="stylesheet" href="css/mobile/base.css">
+    <link rel="stylesheet" href="css/mobile/product-page.css">
+    <link rel="stylesheet" href="css/mobile/checkout-modal.css">
 </head>
 
 <body>
@@ -460,7 +50,7 @@
             </div>
             <a href="#" class="mobile-profile mobile-only">
                 <span class="profile-name">ibrahim</span>
-                <img src="images/Ibrahim-Profile-Pic.png" alt="ibrahim">
+                <img src="images/Ibrahim-Profile-Pic.png" alt="ibrahim" loading="lazy" decoding="async">
             </a>
 
             <!-- Desktop Navbar Elements (Hidden on Mobile) -->
@@ -475,7 +65,7 @@
             </div>
 
             <div class="nav-actions desktop-only">
-                <a href="index.html#store" class="btn-secondary" style="padding: 8px 16px;">العودة للمتجر</a>
+                <a href="index.html#store" class="btn-secondary nav-back-link">العودة للمتجر</a>
             </div>
         </div>
     </nav>
@@ -492,10 +82,10 @@
                     <div class="title-row">
                         <h1 class="showcase-title">جرارات <span class="text-gradient">التخزين</span></h1>
                     </div>
-                    <ul class="showcase-desc" style="padding-right: 25px; margin-top: 0;">
-                        <li style="margin-bottom: 8px;">جرارات التخزين البلاستيكية مكونة من 20 درج</li>
-                        <li style="margin-bottom: 8px;">مناسبة لترتيب وتنظيم القطع والأشياء الصغيرة</li>
-                        <li style="margin-bottom: 8px;">قابلة للتركيب فوق بعضها البعض بسهولة</li>
+                    <ul class="showcase-desc">
+                        <li>جرارات التخزين البلاستيكية مكونة من 20 درج</li>
+                        <li>مناسبة لترتيب وتنظيم القطع والأشياء الصغيرة</li>
+                        <li>قابلة للتركيب فوق بعضها البعض بسهولة</li>
                         <li>خفيفة الوزن يمكن تثبيتها على الحائط</li>
                     </ul>
                 </div>
@@ -503,7 +93,7 @@
                 <!-- Gallery: Main Image & Carousel -->
                 <div class="gallery-container">
                     <div class="main-image-wrap" id="mainImageWrap">
-                        <img src="images/drawer-1.jpg" alt="جرارات التخزين" id="mainProductImg">
+                        <img src="images/drawer-1.jpg" alt="جرارات التخزين" id="mainProductImg" decoding="async">
                     </div>
 
                     <!-- Carousel Navigation (Mobile Only) -->
@@ -529,9 +119,19 @@
                 <!-- Actions: Price & Buy Button (Appears below image on mobile) -->
                 <div class="showcase-actions">
                     <!-- Desktop Price -->
-                    <div class="showcase-price desktop-only">
-                        <span class="val">150,000</span>
-                        <span class="cur">ليرة سورية</span>
+                    <div class="mobile-price-container desktop-only">
+                        <div class="special-badge">
+                            <span class="badge-text">عرض خاص</span>
+                            <span class="badge-time">72:00:00</span>
+                        </div>
+                        <div class="price-main">
+                            <span class="discount">-27%</span>
+                            <span class="amount"><span class="currency-symbol">$</span>11</span>
+                        </div>
+                        <div class="price-old">
+                            <span class="old-label">السعر الأصلي : </span>
+                            <span class="old-amount">$15</span>
+                        </div>
                     </div>
 
                     <!-- Mobile Price -->
@@ -568,20 +168,19 @@
                     </div>
 
                     <!-- Desktop Shipping -->
-                    <div class="shipping-notice desktop-only"
-                        style="margin-top: 2px; color: #10b981; font-weight: 700; display: flex; align-items: center; gap: 10px; font-size: 1rem;">
-                        <i class='bx bxs-truck' style="font-size: 1.6rem; opacity: 0.8;"></i>
+                    <div class="shipping-notice desktop-only desktop-shipping">
+                        <i class='bx bxs-truck'></i>
                         متوفر توصيل آمن لجميع المحافظات خلال 1-3 أيام
                     </div>
 
                     <!-- Mobile Shipping -->
-                    <div class="shipping-notice mobile-only mobile-shipping"
-                        style="margin-top: 8px; color: #10b981; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.95rem;">
-                        <i class='bx bxs-truck' style="font-size: 1.6rem;"></i>
+                    <div class="shipping-notice mobile-only mobile-shipping">
+                        <i class='bx bxs-truck'></i>
                         توصيل آمن ومجاني لجميع المحافظات السورية
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Technical Specs Redesign -->
@@ -730,8 +329,8 @@
                         <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Syriatel_Logo.png"
                             alt="Syriatel Cash" class="pay-logo">
                         <h4 class="pay-title">الدفع عبر سيريتل كاش</h4>
-                        <p class="pay-hint">يرجى تحويل مبلغ <strong class="text-gradient text-lg"
-                                id="selectedModelPrice">150,000</strong> ل.س إلى الرقم التالي:</p>
+                        <p class="pay-hint">يرجى تحويل مبلغ <strong class="text-gradient text-lg">$<span
+                                    id="selectedModelPrice">11</span></strong> إلى الرقم التالي:</p>
                         <div class="number-box" onclick="copyNumber()">
                             <span class="number-val" id="payNumber">0930000000</span>
                             <i class='bx bx-copy'></i>
@@ -764,138 +363,8 @@
 
     <!-- Scripts -->
     <script src="js/script.js"></script>
-    <script>
-        // Image Gallery Data
-        const productImages = [
-            'images/drawer-1.jpg',
-            'images/drawer-2.jpg',
-            'images/drawer-3.jpg',
-            'images/drawer-4.jpg',
-            'images/drawer-5.jpg'
-        ];
-        let currentImageIndex = 0;
+    <script src="js/pages/model-classic-gallery.js"></script>
 
-        // Image Gallery Switcher
-        function switchImage(src, index) {
-            currentImageIndex = index;
-            const mainImg = document.getElementById('mainProductImg');
-
-            // Smooth fade-out effect (matches 0.4s CSS transition)
-            mainImg.style.opacity = '0';
-
-            setTimeout(() => {
-                mainImg.src = src;
-                mainImg.style.opacity = '1';
-            }, 100); // Change source slightly before full fade out for smoother effect
-
-            // Update active state for both thumbnails and dots
-            updateGalleryUI(index);
-
-            // Reset interval on user interaction
-            resetAutoSwipe();
-        }
-
-        function updateGalleryUI(index) {
-            // Update dots
-            const dots = document.querySelectorAll('.dot');
-            dots.forEach((d, i) => {
-                if (i === index) d.classList.add('active');
-                else d.classList.remove('active');
-            });
-        }
-
-        function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % productImages.length;
-            switchImage(productImages[currentImageIndex], currentImageIndex);
-        }
-
-        function prevImage() {
-            currentImageIndex = (currentImageIndex - 1 + productImages.length) % productImages.length;
-            switchImage(productImages[currentImageIndex], currentImageIndex);
-        }
-
-        // Add touch swipe support for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        const gallery = document.getElementById('mainImageWrap');
-        gallery.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, false);
-
-        gallery.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, false);
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) nextImage(); // Swipe left (in RTL, next)
-            if (touchEndX > touchStartX + 50) prevImage(); // Swipe right (in RTL, prev)
-        }
-
-        // Auto Swap Images every 10 seconds
-        let autoSwipeInterval;
-
-        function startAutoSwipe() {
-            autoSwipeInterval = setInterval(() => {
-                // Call nextImage but bypass reset inside switchImage to avoid loops if needed
-                // Actually nextImage calls switchImage, which calls resetAutoSwipe.
-                // This means the interval gets reset cleanly every time it fires.
-                nextImage();
-            }, 10000);
-        }
-
-        function resetAutoSwipe() {
-            clearInterval(autoSwipeInterval);
-            startAutoSwipe();
-        }
-
-        // Start initially
-        startAutoSwipe();
-
-        // 72-Hour Persistent Countdown Timer
-        function startCountdown() {
-            const timerElement = document.querySelector('.badge-time');
-            if (!timerElement) return;
-
-            const duration = 72 * 60 * 60 * 1000; // 72 hours in ms
-            let targetTime = localStorage.getItem('countdownTargetTime');
-
-            if (!targetTime) {
-                targetTime = Date.now() + duration;
-                localStorage.setItem('countdownTargetTime', targetTime);
-            } else {
-                targetTime = parseInt(targetTime, 10);
-            }
-
-            function updateTimer() {
-                const now = Date.now();
-                let remaining = targetTime - now;
-
-                if (remaining <= 0) {
-                    // Reset to another 72 hours once it hits 0
-                    targetTime = Date.now() + duration;
-                    localStorage.setItem('countdownTargetTime', targetTime);
-                    remaining = duration;
-                }
-
-                const hours = Math.floor(remaining / (1000 * 60 * 60));
-                const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-
-                const formattedHours = String(hours).padStart(2, '0');
-                const formattedMinutes = String(minutes).padStart(2, '0');
-                const formattedSeconds = String(seconds).padStart(2, '0');
-
-                timerElement.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-            }
-
-            updateTimer();
-            setInterval(updateTimer, 1000);
-        }
-
-        startCountdown();
-    </script>
 </body>
 
 </html>

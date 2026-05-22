@@ -1,0 +1,111 @@
+<section class="product-showcase">
+        <div class="showcase-card reveal">
+            <div class="showcase-container">
+                <!-- Header: Title & Description (Appears above image on mobile) -->
+                <div class="showcase-header">
+                    <div class="badges-wrap">
+
+                    </div>
+                    <div class="title-row">
+                        <h1 class="showcase-title">جرارات <span class="text-gradient">التخزين</span></h1>
+                    </div>
+                    <ul class="showcase-desc">
+                        <li>جرارات التخزين البلاستيكية مكونة من 20 درج</li>
+                        <li>مناسبة لترتيب وتنظيم القطع والأشياء الصغيرة</li>
+                        <li>قابلة للتركيب فوق بعضها البعض بسهولة</li>
+                        <li>خفيفة الوزن يمكن تثبيتها على الحائط</li>
+                    </ul>
+                </div>
+
+                <!-- Gallery: Main Image & Carousel -->
+                <div class="gallery-container">
+                    <div class="main-image-wrap" id="mainImageWrap">
+                        <img src="images/drawer-1.jpg" alt="جرارات التخزين" id="mainProductImg" decoding="async">
+                    </div>
+
+                    <!-- Carousel Navigation (Mobile Only) -->
+                    <div class="dots-navigation">
+                        <button class="nav-btn" onclick="prevImage()">
+                            <i class='bx bx-chevron-right'></i>
+                        </button>
+                        <div class="carousel-dots" id="carouselDots">
+                            <span class="dot active" onclick="switchImage('images/drawer-1.jpg', 0)"></span>
+                            <span class="dot" onclick="switchImage('images/drawer-2.jpg', 1)"></span>
+                            <span class="dot" onclick="switchImage('images/drawer-3.jpg', 2)"></span>
+                            <span class="dot" onclick="switchImage('images/drawer-4.jpg', 3)"></span>
+                            <span class="dot" onclick="switchImage('images/drawer-5.jpg', 4)"></span>
+                        </div>
+                        <button class="nav-btn" onclick="nextImage()">
+                            <i class='bx bx-chevron-left'></i>
+                        </button>
+                    </div>
+
+                    <!-- Thumbnails (Removed for cleaner UI) -->
+                </div>
+
+                <!-- Actions: Price & Buy Button (Appears below image on mobile) -->
+                <div class="showcase-actions">
+                    <!-- Desktop Price -->
+                    <div class="mobile-price-container desktop-only">
+                        <div class="special-badge">
+                            <span class="badge-text">عرض خاص</span>
+                            <span class="badge-time">72:00:00</span>
+                        </div>
+                        <div class="price-main">
+                            <span class="discount">-27%</span>
+                            <span class="amount"><span class="currency-symbol">$</span>11</span>
+                        </div>
+                        <div class="price-old">
+                            <span class="old-label">السعر الأصلي : </span>
+                            <span class="old-amount">$15</span>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Price -->
+                    <div class="mobile-price-container mobile-only">
+                        <div class="special-badge">
+                            <span class="badge-text">عرض خاص</span>
+                            <span class="badge-time">72:00:00</span>
+                        </div>
+                        <div class="price-main">
+                            <span class="discount">-27%</span>
+                            <span class="amount"><span class="currency-symbol">$</span>11</span>
+                        </div>
+                        <div class="price-old">
+                            <span class="old-label">السعر الأصلي : </span>
+                            <span class="old-amount">$15</span>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Button -->
+                    <div class="buy-action desktop-only">
+                        <button class="btn-primary buy-btn" onclick="openOrderModal('جرارات التخزين', 11)">
+                            اطلب الآن - توصيل مجاني
+                            <i class='bx bx-shopping-bag'></i>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Button -->
+                    <div class="buy-action mobile-only">
+                        <button class="btn-primary buy-btn mobile-buy-btn"
+                            onclick="openOrderModal('جرارات التخزين', 11)">
+                            اطلب الآن
+                            <img src="images/syrian-eagle.png" class="btn-syria-icon" alt="سورية">
+                        </button>
+                    </div>
+
+                    <!-- Desktop Shipping -->
+                    <div class="shipping-notice desktop-only desktop-shipping">
+                        <i class='bx bxs-truck'></i>
+                        متوفر توصيل آمن لجميع المحافظات خلال 1-3 أيام
+                    </div>
+
+                    <!-- Mobile Shipping -->
+                    <div class="shipping-notice mobile-only mobile-shipping">
+                        <i class='bx bxs-truck'></i>
+                        توصيل آمن ومجاني لجميع المحافظات السورية
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

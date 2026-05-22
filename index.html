@@ -16,19 +16,17 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/shared/base.css">
+    <link rel="stylesheet" href="css/desktop/home.css">
+    <link rel="stylesheet" href="css/shared/footer.css">
+    <link rel="stylesheet" href="css/desktop/checkout-modal.css">
+    <link rel="stylesheet" href="css/shared/performance.css">
+    <link rel="stylesheet" href="css/mobile/home.css">
+    <link rel="stylesheet" href="css/mobile/base.css">
+    <link rel="stylesheet" href="css/mobile/checkout-modal.css">
 </head>
 
 <body>
-
-    <!-- Animated Background Grid & Blobs -->
-    <div class="bg-container">
-        <div class="color-blob blob-1"></div>
-        <div class="color-blob blob-2"></div>
-        <div class="color-blob blob-3"></div>
-        <div class="bg-grid"></div>
-    </div>
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -45,7 +43,7 @@
             </div>
             <a href="#" class="mobile-profile mobile-only">
                 <span class="profile-name">ibrahim</span>
-                <img src="images/Ibrahim-Profile-Pic.png" alt="ibrahim">
+                <img src="images/Ibrahim-Profile-Pic.png" alt="ibrahim" loading="lazy" decoding="async">
             </a>
 
             <!-- Desktop Navbar Elements (Hidden on Mobile) -->
@@ -113,7 +111,8 @@
             <div class="product-card glass-panel reveal">
                 <div class="product-image-wrap">
                     <div class="product-badge">متوفر</div>
-                    <img src="images/drawer-1.jpg" alt="جرارات التخزين" class="product-img">
+                    <img src="images/drawer-1.jpg" alt="جرارات التخزين" class="product-img" loading="lazy"
+                        decoding="async">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">جرارات التخزين - الإصدار الأول</h3>
@@ -122,7 +121,7 @@
                         <span class="price-val">150,000</span>
                         <span class="price-cur">ل.س</span>
                     </div>
-                    <a href="model-classic.html" class="btn-primary w-100 text-center" style="text-decoration: none;">
+                    <a href="model-classic.html" class="btn-primary w-100 text-center">
                         تفاصيل المنتج
                         <i class='bx bx-link-external'></i>
                     </a>
@@ -134,7 +133,7 @@
                 <div class="product-image-wrap">
                     <div class="product-badge coming-soon">قريباً</div>
                     <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=600&q=80"
-                        alt="جرارات برو" class="product-img grayscale">
+                        alt="جرارات برو" class="product-img grayscale" loading="lazy" decoding="async">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">جرارات برو (حجم كبير)</h3>
@@ -143,8 +142,7 @@
                         <span class="price-val text-muted">--</span>
                         <span class="price-cur text-muted">ل.س</span>
                     </div>
-                    <a href="#" class="btn-secondary w-100 text-center"
-                        style="text-decoration: none; pointer-events: none; opacity: 0.6;">
+                    <a href="#" class="btn-secondary w-100 text-center is-disabled-link">
                         تفاصيل المنتج (قريباً)
                     </a>
                 </div>
@@ -155,7 +153,7 @@
                 <div class="product-image-wrap">
                     <div class="product-badge coming-soon">قريباً</div>
                     <img src="https://images.unsplash.com/photo-1595514535311-6cd72d242699?auto=format&fit=crop&w=600&q=80"
-                        alt="جرارات ميني" class="product-img grayscale">
+                        alt="جرارات ميني" class="product-img grayscale" loading="lazy" decoding="async">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">جرارات ميني</h3>
@@ -164,8 +162,7 @@
                         <span class="price-val text-muted">--</span>
                         <span class="price-cur text-muted">ل.س</span>
                     </div>
-                    <a href="#" class="btn-secondary w-100 text-center"
-                        style="text-decoration: none; pointer-events: none; opacity: 0.6;">
+                    <a href="#" class="btn-secondary w-100 text-center is-disabled-link">
                         تفاصيل المنتج (قريباً)
                     </a>
                 </div>

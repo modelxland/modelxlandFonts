@@ -1,0 +1,93 @@
+<div class="modal-overlay" id="orderModal">
+        <div class="modal-container glass-panel">
+            <button class="modal-close" onclick="closeOrderModal()"><i class='bx bx-x'></i></button>
+
+            <div class="modal-header">
+                <h3 class="modal-title">إتمام الطلب</h3>
+                <p class="modal-subtitle">المنتج: <span id="selectedModelName" class="text-gradient font-bold"></span>
+                </p>
+            </div>
+
+            <div class="modal-body">
+                <!-- Step 1: Info -->
+                <div class="step-content active" id="step1">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">الاسم الكامل</label>
+                            <input type="text" class="form-input" id="customerName" placeholder="الاسم الثلاثي">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">رقم الموبايل</label>
+                            <input type="tel" class="form-input" id="customerPhone" placeholder="09xxxxxxxxx">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">المحافظة</label>
+                            <select class="form-input" id="customerCity">
+                                <option value="">اختر المحافظة...</option>
+                                <option value="دمشق">دمشق</option>
+                                <option value="ريف دمشق">ريف دمشق</option>
+                                <option value="حلب">حلب</option>
+                                <option value="حمص">حمص</option>
+                                <option value="حماة">حماة</option>
+                                <option value="اللاذقية">اللاذقية</option>
+                                <option value="طرطوس">طرطوس</option>
+                                <option value="درعا">درعا</option>
+                                <option value="السويداء">السويداء</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">العنوان التفصيلي</label>
+                            <input type="text" class="form-input" id="customerAddress"
+                                placeholder="المنطقة، الشارع، البناء...">
+                        </div>
+                    </div>
+
+                    <button class="btn-primary w-100 mt-4" onclick="nextStep()">
+                        متابعة للدفع
+                        <i class='bx bx-left-arrow-alt'></i>
+                    </button>
+                </div>
+
+                <!-- Step 2: Payment -->
+                <div class="step-content" id="step2">
+                    <div class="payment-card glass-panel-inner">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Syriatel_Logo.png"
+                            alt="Syriatel Cash" class="pay-logo">
+                        <h4 class="pay-title">الدفع عبر سيريتل كاش</h4>
+                        <p class="pay-hint">يرجى تحويل مبلغ <strong class="text-gradient text-lg"
+                                id="selectedModelPrice">150,000</strong> ل.س إلى الرقم التالي:</p>
+
+                        <div class="number-box" onclick="copyNumber()">
+                            <span class="number-val" id="payNumber">0930000000</span>
+                            <i class='bx bx-copy'></i>
+                        </div>
+                        <p class="copy-hint">اضغط لنسخ الرقم</p>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label class="form-label">رقم عملية التحويل (Reference Number)</label>
+                        <input type="text" class="form-input text-center font-bold" id="paymentRef"
+                            placeholder="مثال: 12345678">
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn-secondary flex-1" onclick="prevStep()">رجوع</button>
+                        <button class="btn-primary flex-2" onclick="submitOrder()">تأكيد الطلب <i
+                                class='bx bx-check-circle'></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Success -->
+                <div class="step-content text-center" id="step3">
+                    <div class="success-animation">
+                        <div class="checkmark-circle">
+                            <i class='bx bx-check'></i>
+                        </div>
+                    </div>
+                    <h3 class="success-title">تم استلام طلبك بنجاح!</h3>
+                    <p class="success-text">سنقوم بمعالجة طلبك وشحنه خلال 1 إلى 3 أيام عمل.<br>سنتواصل معك قريباً
+                        للتأكيد.</p>
+                    <button class="btn-secondary mt-4 w-100" onclick="closeOrderModal()">العودة للمتجر</button>
+                </div>
+            </div>
+        </div>

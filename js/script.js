@@ -83,7 +83,7 @@ if (modal) {
                             <ul class="order-price-list">
                                 <li>
                                     <span class="price-dot"></span>
-                                    <span class="order-price-label">سعر المنتج :</span>
+                                    <span class="order-price-label">ســــــعــــــر الـــمــنــتــج :</span>
                                     <strong class="order-price-value">$<span id="selectedModelPrice">11</span></strong>
                                 </li>
                                 <li>
@@ -93,7 +93,7 @@ if (modal) {
                                 </li>
                                 <li>
                                     <span class="price-dot"></span>
-                                    <span class="order-price-label">المجموع الكلي :</span>
+                                    <span class="order-price-label">الــمـــجــمــوع الـكــلــي :</span>
                                     <strong class="order-price-value">$<span id="selectedModelTotal">11</span></strong>
                                 </li>
                             </ul>
@@ -102,7 +102,7 @@ if (modal) {
 
                     <div class="order-divider"></div>
 
-                    <h2 class="payment-method-title" id="paymentChoiceTitle">اختر طريقة الدفع</h2>
+                    <h2 class="payment-method-title" id="paymentChoiceTitle">اختـر طريـقـة الدفــع :</h2>
 
                     <div class="payment-options-list" aria-label="طرق الدفع">
                         <button class="payment-opt-btn syriatel-mtn" type="button" onclick="selectPaymentMethod('mobile-cash')" aria-label="سيريتل كاش أو MTN كاش">

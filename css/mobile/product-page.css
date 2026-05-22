@@ -1,79 +1,27 @@
 /* ==========================================================================
-   Mobile UI Styles (max-width: 600px)
+   Mobile Product Page
    ========================================================================== */
 
+@media (max-width: 968px) {
+    .showcase-card {
+        padding: 30px;
+        border-radius: 30px;
+        margin: 0 15px;
+    }
+
+    .showcase-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "header"
+            "gallery"
+            "actions";
+        gap: 30px;
+    }
+}
+
 @media (max-width: 600px) {
-
-    /* Background & Grid */
-    .bg-grid,
-    .color-blob {
-        display: none !important;
-    }
-
-    .bg-container {
-        background: var(--bg-color) !important;
-    }
-
-    /* Navbar */
-    nav {
-        background: #fff !important;
-        padding: 10px 0 !important;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05) !important;
-    }
-
-    .nav-container {
-        padding: 0 15px !important;
-    }
-
-    .desktop-only {
-        display: none !important;
-    }
-
-    .mobile-only {
-        display: flex !important;
-    }
-
-    .mobile-logo-menu {
-        align-items: center;
-        gap: 9px;
-    }
-
-    .mobile-logo-text {
-        font-family: var(--font-main);
-        font-weight: 800;
-        font-size: 1.2rem;
-        color: var(--primary);
-    }
-
-    .mobile-logo-menu i,
-    .mobile-logo-menu svg {
-        width: 26px;
-        height: 26px;
-        color: #000;
-        cursor: pointer;
-    }
-
-    .mobile-profile {
-        align-items: center;
-        gap: 12px;
-        text-decoration: none;
-    }
-
-    .profile-name {
-        font-weight: 700;
-        font-size: 1.2rem;
-        color: #000;
-        text-transform: lowercase;
-    }
-
-    .mobile-profile img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
-    /* Showcase Layout */
+/* Showcase Layout */
     .product-showcase {
         padding-top: 60px;
         padding-bottom: 40px;
@@ -312,8 +260,11 @@
     }
 
     /* Mobile Custom Price Styling matching screenshot */
-    .mobile-price-container {
+    .mobile-price-container.mobile-only {
         display: flex !important;
+    }
+
+    .mobile-price-container {
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -509,139 +460,5 @@
         letter-spacing: -0.5px;
         padding: 0.1em 0;
         display: inline-block;
-    }
-
-    /* Order modal - mobile-only sizing. Keep this separate from desktop CSS. */
-    .modal-overlay {
-        padding: 10px !important;
-    }
-
-    .modal-container.order-modal-shell {
-        width: min(100%, 390px);
-        max-width: 390px !important;
-        max-height: calc(100dvh - 20px);
-        border-radius: 22px !important;
-        padding: 13px 15px 17px !important;
-        overflow: hidden !important;
-    }
-
-    .order-modal-shell .order-modal-topbar {
-        height: 23px;
-    }
-
-    .order-modal-shell .order-modal-close {
-        width: 23px;
-        height: 23px;
-        min-width: 23px;
-        font-size: 1rem;
-    }
-
-    .order-back-btn {
-        font-size: 0.74rem;
-        gap: 5px;
-    }
-
-    .order-back-btn i {
-        font-size: 1rem;
-    }
-
-    .order-summary-panel {
-        grid-template-columns: 84px minmax(0, 1fr);
-        gap: 10px;
-        margin-top: 12px;
-    }
-
-    .order-summary-image {
-        width: 84px;
-        height: 84px;
-        border-radius: 10px;
-    }
-
-    .order-summary-copy h3 {
-        font-size: 0.88rem;
-        margin-bottom: 6px;
-    }
-
-    .order-price-list {
-        gap: 3px;
-    }
-
-    .order-price-list li {
-        gap: 5px;
-        font-size: 0.64rem;
-    }
-
-    .price-dot {
-        width: 4px;
-        height: 4px;
-    }
-
-    .order-price-value {
-        font-size: 0.72rem;
-        min-width: 25px;
-    }
-
-    .order-divider {
-        margin: 11px 0 12px;
-    }
-
-    .order-modal-shell .payment-method-title {
-        font-size: 1.08rem;
-        margin-bottom: 12px;
-    }
-
-    .order-modal-shell .payment-options-list {
-        gap: 10px;
-    }
-
-    .order-modal-shell .payment-opt-btn {
-        height: 40px;
-        border-radius: 9px;
-    }
-
-    .order-modal-shell .syriatel-mtn .syriatel-side {
-        padding-left: 9px;
-    }
-
-    .order-modal-shell .syriatel-mtn .mtn-side {
-        padding-right: 11px;
-    }
-
-    .order-modal-shell .syriatel-mtn .syriatel-side img {
-        width: 83px;
-    }
-
-    .order-modal-shell .syriatel-mtn .mtn-side img {
-        width: 54px;
-    }
-
-    .order-modal-shell .payment-opt-btn.card-option {
-        gap: 8px;
-        padding: 0 12px;
-    }
-
-    .order-modal-shell .payment-opt-btn.card-option > span:not(.credit-card-stack) {
-        font-size: 0.86rem;
-        white-space: nowrap;
-    }
-
-    .credit-card-stack {
-        flex-basis: 36px;
-        height: 36px;
-        transform: scale(0.46);
-    }
-
-    .order-modal-shell .payment-opt-btn.sham-option {
-        padding: 0 12px;
-    }
-
-    .order-modal-shell .payment-opt-btn.sham-option img {
-        width: 29px;
-        height: 29px;
-        border-radius: 6px;
-    }
-
-    .order-modal-shell .payment-opt-btn.sham-option span {
-        font-size: 0.95rem;
     }
 }

@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Performance: Reduced Motion & Content Visibility
+   ========================================================================== */
+
+/* Skip rendering below-fold sections until near viewport */
+.store,
+.features,
+footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+
+    .color-blob,
+    .floating-element,
+    .hero-img {
+        animation: none !important;
+    }
+
+    .reveal {
+        transition-duration: 0.01s !important;
+    }
+
+    * {
+        transition-duration: 0.01s !important;
+        animation-duration: 0.01s !important;
+    }
+}

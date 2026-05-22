@@ -1,0 +1,574 @@
+/* ==========================================================================
+   CHECKOUT & PAYMENT MODAL STYLING (DESKTOP)
+   ========================================================================== */
+
+/* 1. Overlay & Base Container */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.74);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Modal Shell Container (Desktop Default) */
+.modal-container.order-modal-shell {
+    width: min(540px, calc(100vw - 32px));
+    max-width: 540px !important;
+    height: 630px;
+    min-height: 500px;
+    max-height: calc(100dvh - 24px);
+    overflow: hidden !important;
+    background: linear-gradient(135deg, #dfdfdf 0%, #ffffff 58%, #e0ecf5 100%) !important;
+    border: none !important;
+    border-radius: 28px !important;
+    padding: 24px 38px 28px !important;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28) !important;
+    transform: translateY(24px) scale(0.98);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.active .order-modal-shell {
+    transform: translateY(0) scale(1);
+}
+
+/* 2. Top Bar & Buttons */
+.order-modal-topbar {
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+    margin-bottom: 25px;
+}
+
+.order-modal-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: none;
+    color: #55595f;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.order-modal-close:hover {
+    background: #dcdcdc;
+    transform: scale(1.04);
+}
+
+.order-back-btn {
+    direction: ltr;
+    border: none;
+    background: transparent;
+    color: #050505;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 900;
+    transition: transform 0.2s ease;
+}
+
+.order-back-btn:hover {
+    transform: translateX(3px);
+}
+
+.order-back-btn i {
+    font-size: 1.25rem;
+}
+
+/* 3. Product Summary (Step 1 Top) */
+.order-modal-body {
+    padding: 0 !important;
+}
+
+.order-summary-panel {
+    direction: ltr;
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    align-items: center;
+    gap: 28px;
+    margin-top: 12px;
+}
+
+.order-summary-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+.order-summary-copy {
+    direction: rtl;
+}
+
+.order-summary-copy h3 {
+    margin: 0 0 8px;
+    background: linear-gradient(135deg, #7580f1 0%, #5aa9d6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.order-price-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-price-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #7c8495;
+    font-size: 0.92rem;
+    font-weight: 800;
+}
+
+.price-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #737b8b;
+}
+
+.order-price-label {
+    color: #788191;
+}
+
+.order-price-value {
+    direction: ltr;
+    color: #5f8bd7;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.order-divider {
+    height: 1px;
+    background: #9f9f9f;
+    margin: 14px 0 26px;
+    opacity: 0.5;
+}
+
+/* 4. Payment Methods List (Step 1 Bottom) */
+.payment-method-title {
+    color: #2a2a2a;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 30px;
+    text-align: center;
+}
+
+.payment-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.payment-opt-btn {
+    width: 100%;
+    height: 65px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.payment-opt-btn:hover {
+    filter: brightness(1.02);
+    transform: translateY(-2px);
+}
+
+/* Option Buttons Custom Styles */
+.payment-opt-btn.syriatel-mtn {
+    background: linear-gradient(59deg, #f3f3f9 0 47.2%, #f8d541 47.4% 100%);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.payment-opt-btn.syriatel-mtn:hover {
+    box-shadow: 0 14px 30px rgba(248, 213, 65, 0.42);
+}
+
+.syriatel-side,
+.mtn-side {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48%;
+}
+
+.syriatel-side {
+    left: 0;
+}
+
+.mtn-side {
+    right: 0;
+    padding-right: 20px;
+}
+
+.syriatel-side img {
+    width: 120px;
+    object-fit: contain;
+}
+
+.mtn-side img {
+    width: 100px;
+    object-fit: contain;
+}
+
+.payment-opt-btn.card-option {
+    position: relative;
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #8b73da 60%, #724cb9 100%);
+    box-shadow: 0 14px 24px rgba(114, 76, 185, 0.32);
+    color: #fff;
+    padding: 0 10px;
+}
+
+.payment-opt-btn.card-option:hover {
+    box-shadow: 0 18px 32px rgba(114, 76, 185, 0.48);
+}
+
+.payment-opt-btn.card-option>span:not(.credit-card-stack) {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.credit-card-stack {
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%) scale(0.68);
+    transform-origin: left center;
+    width: 64px;
+    height: 60px;
+}
+
+.credit-card-back {
+    position: absolute;
+    left: 1px;
+    top: 7px;
+    width: 64px;
+    height: 42px;
+    background: linear-gradient(135deg, #f9d968, #f2b85a);
+    border-radius: 7px;
+    transform: rotate(-12deg);
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.13);
+}
+
+.credit-card-front {
+    position: absolute;
+    left: 14px;
+    top: 15px;
+    width: 64px;
+    height: 42px;
+    background: linear-gradient(135deg, #87c5f6, #5f96dd);
+    border-radius: 7px;
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.16);
+    overflow: hidden;
+}
+
+.credit-card-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 9px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.46);
+}
+
+.credit-card-chip {
+    position: absolute;
+    left: 9px;
+    bottom: 8px;
+    width: 18px;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.62);
+}
+
+.credit-card-marks::before,
+.credit-card-marks::after {
+    content: "";
+    position: absolute;
+    bottom: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+.credit-card-marks::before {
+    right: 16px;
+    background: #f9cd4d;
+}
+
+.credit-card-marks::after {
+    right: 7px;
+    background: #f0665b;
+}
+
+.payment-opt-btn.sham-option {
+    position: relative;
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #75a8ab 0%, #34369d 100%);
+    box-shadow: 0 12px 22px rgba(52, 54, 157, 0.18);
+    color: #fff;
+    padding: 0 10px;
+}
+
+.payment-opt-btn.sham-option img {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.payment-opt-btn.sham-option span {
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-family: var(--font-main);
+}
+
+/* 5. Steps Display & Animations */
+.step-content {
+    display: none;
+    animation: fadeInRight 0.4s ease;
+}
+
+.step-content.active {
+    display: block;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.order-flow-step {
+    padding-top: 16px;
+}
+
+/* 6. Checkout Forms (Step 2 & 3) */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 500px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-group:nth-child(1),
+    .form-group:nth-child(4) {
+        grid-column: 1 / -1;
+    }
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-main);
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-main);
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-family: var(--font-main);
+    font-size: 0.92rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    background: #fff;
+}
+
+select.form-input {
+    cursor: pointer;
+}
+
+/* Payment Details (Step 3) */
+.payment-card {
+    padding: 16px;
+    text-align: center;
+    background: rgba(244, 246, 251, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    margin-bottom: 12px;
+}
+
+.pay-logo {
+    height: 38px;
+    margin-bottom: 8px;
+}
+
+.pay-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.pay-hint {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-bottom: 12px;
+}
+
+.number-box {
+    background: #fff;
+    border: 2px dashed rgba(79, 70, 229, 0.3);
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.number-box:hover {
+    background: rgba(79, 70, 229, 0.05);
+    border-style: solid;
+    border-color: var(--primary);
+}
+
+.number-val {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--primary);
+    letter-spacing: 1px;
+}
+
+.number-box i {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
+.copy-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Step Buttons Group */
+.btn-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+/* 7. Success Step (Step 4) */
+.success-animation {
+    margin: 16px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.checkmark-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.2);
+    animation: scaleUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.success-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.success-text {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}

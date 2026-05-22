@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Mobile Base Layout
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+/* Background & Grid */
+    .bg-grid,
+    .color-blob {
+        display: none !important;
+    }
+
+    .bg-container {
+        background: var(--bg-color) !important;
+    }
+
+    /* Navbar */
+    nav {
+        background: #fff !important;
+        padding: 10px 0 !important;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .nav-container {
+        padding: 0 15px !important;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: flex !important;
+    }
+
+    .mobile-logo-menu {
+        align-items: center;
+        gap: 9px;
+    }
+
+    .mobile-logo-text {
+        font-family: var(--font-main);
+        font-weight: 800;
+        font-size: 1.2rem;
+        color: var(--primary);
+    }
+
+    .mobile-logo-menu i,
+    .mobile-logo-menu svg {
+        width: 26px;
+        height: 26px;
+        color: #000;
+        cursor: pointer;
+    }
+
+    .mobile-profile {
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+    }
+
+    .profile-name {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #000;
+        text-transform: lowercase;
+    }
+
+    .mobile-profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
